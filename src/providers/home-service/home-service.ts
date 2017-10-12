@@ -10,12 +10,12 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class HomeServiceProvider {
-
+  public sessionid: string;
   constructor(public http: Http) {
-    console.log('Hello HomeServiceProvider Provider');
+     this.sessionid = localStorage.getItem('sessionid')
   }
     getNewMails(){
-      return this.http.get('http://www1.dc.xandmail.com/ca/testbuild_leggera/cgi-bin/ajaxmail?Act_Msgs_Unread_List=1&Tpl=mail_list&ID=IeBAJTpsyZMWzEwVMmBAIjRJAUOiRJkadFlE0ohOlBDU.WaNikCQ-').map((res:Response)=> res.json())
+      return this.http.get('http://www1.dc.xandmail.com/ca/testbuild_leggera/cgi-bin/ajaxmail?Act_Msgs_Unread_List=1&Tpl=mail_list&ID='+this.sessionid).map((res:Response)=> res.json())
     }
 
 }

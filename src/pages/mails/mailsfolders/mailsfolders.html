@@ -1,0 +1,45 @@
+<!--
+  Generated template for the MailsfoldersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-menu [content]="content">
+  <ion-list #content>
+    <ion-item text-wrap *ngFor="let btn of impFolder">
+      <h2>{{ btn.label }}</h2>
+      <p>id: {{ btn.id }}, contid: {{ btn.contid }}</p>
+    </ion-item>
+  </ion-list>
+</ion-menu>
+<ion-content>
+  <div id="topbuttons">
+    <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <!--button ion-button icon-only><ion-icon name="skip-backward" (click)=""></ion-icon></button-->
+  </div>
+  <br>
+  <ion-list>
+    <ion-item text-wrap *ngFor="let mail of mails">
+      <b *ngIf="mail.isUnread == true">
+        <p (click)="loadMail(mail.msgid)">
+        from: {{ mail.from}} <br> 
+        {{ mail.date }} <br>
+        {{ mail.subject }} 
+        </p>
+      </b> 
+      <p *ngIf="mail.isUnread != true" (click)="loadMail(mail.objectId)">
+          from: {{ mail.from}} <br> 
+          {{ mail.date }} <br>
+          {{ mail.subject }} 
+        </p> 
+    </ion-item>  
+  </ion-list>  
+</ion-content>

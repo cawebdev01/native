@@ -1,17 +1,25 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-title>Aruba / Xandmail</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-  <button ion-button (click)="tobg()">mettre en bg</button>
-  <button ion-button (click)="tofg()">mettre en fg</button>
-  <p>{{ newMsg }}</p>
+  <h3>
+    Welcome on your application
+  </h3>
+  <p>Your email is : {{ email }}</p>
+  <button ion-button class="mails-btn" full (click)="mails()">Mails <ion-badge item-end *ngIf="this.newMsg!=0">({{ newMsg }})</ion-badge></button><br>
+  <button ion-button class="abooks-btn" full (click)="contacts()">Address Books</button><br>
+  <button ion-button class="calendars-btn" full (click)="calendars()">Calendars</button><br>
+  <button ion-button class="storage-btn" full (click)="storages()">Storages</button><br>
+  <button ion-button class="notes-btn" full (click)="notes()">Notes</button><br>
+  <button ion-button class="tasks-btn" full (click)="tasks()">Tasks</button><br>    
 </ion-content>
+<ion-footer>
+  <ion-buttons end>
+    <button ion-button (click)="logout(sessionid)">
+      <ion-icon name="log-out"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-footer>

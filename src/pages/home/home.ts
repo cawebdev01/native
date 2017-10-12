@@ -3,27 +3,42 @@ import { NavController } from 'ionic-angular';
 //import { Calendar } from '@ionic-native/calendar';
 //import { BackgroundMode } from '@ionic-native/background-mode';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { Badge } from '@ionic-native/badge';
 
 import { HomeServiceProvider } from '../../providers/home-service/home-service';
+import { LoginService } from '../../providers/login-service/login-service';
+
+import { MailsFolders } from '../mails/mailsfolders/mailsfolders';
+import { AbooksFolders} from '../abooks/abooksfolders/abooksfolders';
+import { CalendarsFolders } from '../calendars/calendarsfolders/calendarsFolders';
+import { StorageFolders } from '../storage/storagefolders/storagefolders';
+import { NotesFolders } from '../notes/notesfolders/notesfolders';
+import { TasksFolders } from '../tasks/tasksfolders/tasksfolders';
+import { LoginPage } from '../login/login'; 
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-	task
+	task; sessionid; url; email; password;
 	constructor(
 		public navCtrl: NavController,
 	//	private calendar: Calendar,
 	//	private backgroundMode: BackgroundMode,
 		private localnotification : LocalNotifications,
 		private homeService : HomeServiceProvider,
+		private loginService : LoginService,
+		private badge : Badge,
 	) {
-		//this.backgroundMode.enable()
-		//this.notif();
+		this.newMails();
 		this.task = setInterval(() =>{
 			this.newMails()
-		}, 60000)
+		}, 60000);
+		this.email = localStorage.getItem('email');
+		this.url = localStorage.getItem('url');
+		this.sessionid = localStorage.getItem('sessionid');
+		this.password = localStorage.getItem('password');
 	}
 	public notif(){
 		
@@ -32,12 +47,13 @@ export class HomePage {
 			title : "test",
 			text: "this is a test local"
 		});
-		this.localnotification.on("schedule", function(){/*console.log("ca marche!")*/} );
+		this.localnotification.on("schedule", function(){} );
 	}
 	newMsg : number;
 	public newMails(){
 		this.homeService.getNewMails().subscribe(data =>{
 			this.newMsg = data.msgNb;
+			this.badge.set(this.newMsg);
 			if(this.newMsg == 1){
 				this.localnotification.schedule({
 					id: 1,
@@ -46,18 +62,42 @@ export class HomePage {
 				});
 				this.localnotification.on("schedule", function(){/*console.log("ca marche!")*/} );
 			}
-			if(this.newMsg > 1){
+			else if(this.newMsg > 1){
 				this.localnotification.schedule({
 					id: 1,
 					title : "Aruba Mails",
-					text: "Vous avez "+ this.newMsg +" messages"
+					text: "Vous avez "+ this.newMsg +" messages",
+					badge: this.newMsg
 				});
 				this.localnotification.on("schedule", function(){/*console.log("ca marche!")*/} );
 			}
 			else{
-				this.localnotification.clear(1)
+				this.localnotification.clear(1);
+				this.badge.clear();
 			}
 		})
+	}
+	mails(){ 
+		this.navCtrl.push(MailsFolders)
+	}
+	contacts(){ 
+		this.navCtrl.push(AbooksFolders)	
+	}
+	calendars(){ 
+		this.navCtrl.push(CalendarsFolders)	
+	}
+	storages(){ 
+		this.navCtrl.push(StorageFolders)	
+	}
+	notes(){ 
+		this.navCtrl.push(NotesFolders)	
+	}
+	tasks(){ 
+		this.navCtrl.push(TasksFolders)			
+	}
+	logout(){
+		this.loginService.logout();
+		this.navCtrl.setRoot(LoginPage)
 	}
 	/*public tobg(){
 		this.backgroundMode.moveToBackground();

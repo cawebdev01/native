@@ -4,22 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class User{
-  password : string;
-  email : string;
-  lang: string;  
-  constructor(
-    password, 
-    email, 
-    lang,
-  ){
-    this.email = email;
-    this.password = password;
-    this.lang = lang
-  }
-}
-export class LoginServiceProvider {
-  currentUser: User;
+
+export class LoginService {
+  currentUser;
   email;
   password;
   sessionid;
@@ -46,5 +33,19 @@ export class LoginServiceProvider {
   public logout() {
     this.sessionid = localStorage.getItem('sessionid');
     this.http.get('http://www1.dc.xandmail.com/ca/testbuild_leggera/cgi-bin/ajaxmail?Act_Logout=1&&CleanSession=1&ID='+this.sessionid)
+  }
+}
+export class User{
+  password : string;
+  email : string;
+  lang: string;  
+  constructor(
+    password, 
+    email, 
+    lang,
+  ){
+    this.email = email;
+    this.password = password;
+    this.lang = lang
   }
 }

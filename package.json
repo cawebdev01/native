@@ -21,6 +21,7 @@
         "@angular/platform-browser": "4.4.3",
         "@angular/platform-browser-dynamic": "4.4.3",
         "@ionic-native/background-mode": "^4.3.1",
+        "@ionic-native/badge": "^4.3.1",
         "@ionic-native/calendar": "^4.3.1",
         "@ionic-native/core": "4.3.0",
         "@ionic-native/local-notifications": "^4.3.1",
