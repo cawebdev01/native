@@ -10,32 +10,35 @@
   </ion-navbar>
 </ion-header>
 
-<ion-menu [content]="content">
+<!--ion-menu [content]="content">
   <ion-list #content>
     <ion-item text-wrap *ngFor="let btn of impFolder">
-      <h2>{{ btn.label }}</h2>
-      <p>id: {{ btn.id }}, contid: {{ btn.contid }}</p>
+      <button ion-item  [navPush]="MailsSend">(click)="loadMails(btn.id)"
+        <h2>{{ btn.label }}</h2>
+        <p>id: {{ btn.id }}, contid: {{ btn.contid }}</p>
+      </button>
+      
     </ion-item>
   </ion-list>
-</ion-menu>
+</ion-menu-->
 <ion-content>
   <div id="topbuttons">
-    <button ion-button menuToggle icon-only>
+    <!--button ion-button menuToggle icon-only>
         <ion-icon name="menu"></ion-icon>
-    </button>
+    </button-->
     <!--button ion-button icon-only><ion-icon name="skip-backward" (click)=""></ion-icon></button-->
   </div>
   <br>
   <ion-list>
     <ion-item text-wrap *ngFor="let mail of mails">
       <b *ngIf="mail.isUnread == true">
-        <p (click)="loadMail(mail.objectId)">
+        <p (click)="loadMail(mail.objectId, mail.objectFolder)">
         from: {{ mail.from}} <br> 
         {{ mail.date }} <br>
         {{ mail.subject }} 
         </p>
       </b> 
-      <p *ngIf="mail.isUnread != true" (click)="loadMail(mail.objectId)">
+      <p *ngIf="mail.isUnread != true" (click)="loadMail(mail.objectId, mail.objectFolder)">
           from: {{ mail.from}} <br> 
           {{ mail.date }} <br>
           {{ mail.subject }} 

@@ -16,7 +16,7 @@
 <ion-content padding>
   from : {{ from }} <br>
   to: {{ to }} <br>
-  subject : {{ sub }} <br>
+  <p [innerHTML]="sub"></p><br>
   date: {{ date }} <br>
-  content: {{ text }}
+  <p [innerHTML]="text"></p>
 </ion-content>

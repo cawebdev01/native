@@ -9,18 +9,23 @@ import { MailsinglePage } from '../mailsingle/mailsingle';
   templateUrl: 'mailsfolders.html',
 })
 export class MailsFolders {
-  title: string; mails:[any]; pageinfo:{any}; impFolder:[any]; dataUnread:[any]; oid;
+  title: string; mails:[any]; pageinfo:{any}; impFolder:[any]; dataUnread:[any]; oid; folderid; refresh;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public mailsservice: MailsServiceProvider,
   ) {
     this.title = "MailsFolder";
-    this.loadMails()
+    this.folderid = navParams.get("folderid")
+    this.loadMails(this.folderid)
+    this.refresh = setInterval(() =>{
+			this.loadMails(this.folderid)
+		}, 60000);
     
   }
-  public loadMails(){
-    this.mailsservice.getMails().subscribe(mails =>{
+  public loadMails(folderid){
+    console.log(folderid);
+    this.mailsservice.getMails(folderid).subscribe(mails =>{
       this.mails = mails.data;
       this.oid = mails.data.objectId;
       this.pageinfo = mails.pageInfo;
@@ -28,7 +33,7 @@ export class MailsFolders {
       this.dataUnread = mails.dataUnread;
     })
   }
-  public loadMail(objectId){
-    this.navCtrl.push(MailsinglePage, {"msgid" : objectId } )
+  public loadMail(objectId, folder){
+    this.navCtrl.push(MailsinglePage, {"msgid" : objectId, "folderid": folder} )
   }
 }

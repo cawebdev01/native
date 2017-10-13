@@ -78,7 +78,7 @@ export class HomePage {
 		})
 	}
 	mails(){ 
-		this.navCtrl.push(MailsFolders)
+		this.navCtrl.push(MailsFolders, {"folderid": "SU5CT1g="})
 	}
 	contacts(){ 
 		this.navCtrl.push(AbooksFolders)	
@@ -97,6 +97,7 @@ export class HomePage {
 	}
 	logout(){
 		this.loginService.logout();
+		localStorage.removeItem('sessionid')
 		this.navCtrl.setRoot(LoginPage)
 	}
 	/*public tobg(){

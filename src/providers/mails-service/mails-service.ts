@@ -15,13 +15,12 @@ export class MailsServiceProvider {
     this.sessionid = localStorage.getItem('sessionid')
     this.url = localStorage.getItem('url')
   }
-  getMails(){
-    return this.http.get(this.url+'/cgi-bin/ajaxmail?Act_Msgs=1&Tpl=mail_list&ID='+this.sessionid).map((res:Response)=> res.json())
+  getMails(folderid){
+    return this.http.get(this.url+'/cgi-bin/ajaxmail?Act_Msgs=1&Tpl=mail_list&ID='+this.sessionid+'&C_Folder='+folderid).map((res:Response)=> res.json())
   }
-  getMail(msgid){
-    return this.http.get(this.url+'/cgi-bin/ajaxmail?Act_View=1&ShowFullHeaders=1&ID='+this.sessionid+'&CONTID=&msgID='+msgid+'&C_Folder=SU5CT1g=').map((res:Response)=>res.json())
+  getMail(msgid, cfolder){
+    return this.http.get(this.url+'/cgi-bin/ajaxmail?Act_View=1&ShowFullHeaders=1&ID='+this.sessionid+'&CONTID=&msgID='+msgid+'&C_Folder='+cfolder).map((res:Response)=>res.json())
       //'/cgi-bin/ajamail?Act_View&ShowFullHeaders=1&ID='+this.sessionid+'&CONTID=&msgId='+msgid+'&C_Folder=SU5CT1g=&R_Folder=SU5CT1g=&Body=&TNEF=&nocache='
-    
   }
   markasRead(msgid){
     return this.http.get(this.url+'/cgi-bin/ajaxmail?Act_Msgs_MarkRead=1&Tpl=mail_list&SpamFilter=&CONTID=&ID='+this.sessionid+'&C_Folder=SU5CT1g=&Msg_Nb=1&Msg_Sel_1='+msgid+'&noreload=&nocache=').map((res:Response) => res.json());    

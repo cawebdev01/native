@@ -7,7 +7,7 @@ import { MailsServiceProvider } from '../../../providers/mails-service/mails-ser
   templateUrl: 'mailsingle.html',
 })
 export class MailsinglePage {
-  title; msgid
+  title; msgid; folderid
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -15,13 +15,14 @@ export class MailsinglePage {
   ) {
     this.title = "Mail details";
     this.msgid = navParams.get("msgid");
+    this.folderid = navParams.get("folderid");
     this.openMail();
   }
   from; to; sub; date; text; attach;
   openMail(){
-    this.mailsservice.getMail(this.msgid).subscribe(mail =>{
+    this.mailsservice.getMail(this.msgid, this.folderid).subscribe(mail =>{
       this.from = mail.from.addr;
-      this.to = mail.to.addr;
+      this.to = mail.to[0].addr;
       this.sub = mail.subject;
       this.date = mail.date;
       this.text = mail.text;
