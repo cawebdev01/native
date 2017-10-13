@@ -29,7 +29,7 @@
   <ion-list>
     <ion-item text-wrap *ngFor="let mail of mails">
       <b *ngIf="mail.isUnread == true">
-        <p (click)="loadMail(mail.msgid)">
+        <p (click)="loadMail(mail.objectId)">
         from: {{ mail.from}} <br> 
         {{ mail.date }} <br>
         {{ mail.subject }} 

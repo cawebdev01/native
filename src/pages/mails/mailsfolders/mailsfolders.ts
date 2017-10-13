@@ -9,7 +9,7 @@ import { MailsinglePage } from '../mailsingle/mailsingle';
   templateUrl: 'mailsfolders.html',
 })
 export class MailsFolders {
-  title: string; mails:[any]; pageinfo:{any}; impFolder:[any]; dataUnread:[any];
+  title: string; mails:[any]; pageinfo:{any}; impFolder:[any]; dataUnread:[any]; oid;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -22,6 +22,7 @@ export class MailsFolders {
   public loadMails(){
     this.mailsservice.getMails().subscribe(mails =>{
       this.mails = mails.data;
+      this.oid = mails.data.objectId;
       this.pageinfo = mails.pageInfo;
       this.impFolder = mails.importantFolders;
       this.dataUnread = mails.dataUnread;
