@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { NotesServiceProvider } from '../../../providers/notes-service/notes-service'
 
 @Component({
   selector: 'page-notesfolders',
@@ -7,11 +8,18 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class NotesFolders {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private notesService: NotesServiceProvider,
+  ) {
+    this.loadNotesFolders()
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NotesfoldersPage');
+  datas; itemslists;
+  loadNotesFolders(){
+    this.notesService.getNotesList().subscribe(notes =>{
+      this.datas = notes.data;
+      this.itemslists = notes.itemslists;
+    })
   }
-
 }

@@ -27,7 +27,9 @@ import { MailsServiceProvider } from '../providers/mails-service/mails-service';
 import { AbooksService } from '../providers/abooks-service/abooks-service';
 import { CalendarsServiceProvider } from '../providers/calendars-service/calendars-service';
 import { StorageServiceProvider } from '../providers/storage-service/storage-service';
-
+import { NotesServiceProvider } from '../providers/notes-service/notes-service';
+import { TasksServiceProvider } from '../providers/tasks-service/tasks-service';
+import { AbookcontactPage } from '../pages/abooks/abookcontact/abookcontact'
 @NgModule({
   declarations: [
     MyApp,
@@ -36,6 +38,7 @@ import { StorageServiceProvider } from '../providers/storage-service/storage-ser
     MailsFolders,
     MailsinglePage,
     AbooksFolders,
+    AbookcontactPage,
     AbookslistPage,
     CalendarsFolders,
     StorageFolders,
@@ -56,6 +59,7 @@ import { StorageServiceProvider } from '../providers/storage-service/storage-ser
     MailsinglePage,
     AbooksFolders,
     AbookslistPage,
+    AbookcontactPage,
     CalendarsFolders,
     StorageFolders,
     NotesFolders,
@@ -76,6 +80,8 @@ import { StorageServiceProvider } from '../providers/storage-service/storage-ser
     AbooksService,
     CalendarsServiceProvider,
     StorageServiceProvider,
+    NotesServiceProvider,
+    TasksServiceProvider,
   ]
 })
 export class AppModule {}

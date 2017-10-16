@@ -14,5 +14,13 @@
 
 
 <ion-content padding>
+  <ion-list>
+   <ion-item text-wrap *ngFor="let t of data">
+    <b>{{ t.title }} </b><br >
+    Start Date:{{ t.sDate[2] }} / {{t.sDate[1]}} / {{t.sDate[0]}} <br>
+    End Date:{{ t.eDate[2] }} / {{t.eDate[1]}} / {{t.eDate[0]}} <br>
+    {{ t.percent }} %
 
+   </ion-item>
+  </ion-list>
 </ion-content>

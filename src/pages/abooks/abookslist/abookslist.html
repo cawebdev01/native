@@ -16,7 +16,7 @@
 <ion-content padding>
   <ion-list>
     <ion-item text-wrap *ngFor="let c of contacts">
-      <p>{{ c.composeName }} <br>
+      <p (click)="contactdetail(c.objectId, c.abid)"><b>{{ c.composeName }} </b><br>
       {{ c.preferredEmail}} <br>
       {{ c.preferredPhone }}
       </p>

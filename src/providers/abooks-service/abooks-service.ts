@@ -21,4 +21,7 @@ sessionid; url;
   getABContent(objectid){
     return this.http.get(this.url+'/cgi-bin/ajaxpab?ACT_CL_TB=1&FVAL=105&SENS=0&ABID='+objectid+'&tpl=contact_list&ID='+this.sessionid).map((res:Response)=> res.json())
   }
+  getABContact(abid, cuid){
+    return this.http.get(this.url+'/cgi-bin/ajaxpab?ACT_CT_LEDIT=1&tpl=contact_preview&CUID='+cuid+'&ABID='+abid+'&ID='+this.sessionid).map((res:Response)=>res.json())
+  }
 }

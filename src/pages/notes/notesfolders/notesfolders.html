@@ -14,5 +14,11 @@
 
 
 <ion-content padding>
-
+<!--{{ datas | json }} <br-->
+<!--hr-->
+<ion-list>
+  <ion-item text-wrap *ngFor="let n of itemslists">
+    {{ n.label }} / {{ n.objectId }}
+  </ion-item>
+</ion-list>
 </ion-content>

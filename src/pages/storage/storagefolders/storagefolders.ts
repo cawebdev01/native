@@ -14,11 +14,13 @@ export class StorageFolders {
     private storageservice: StorageServiceProvider) {
       this.loadfolder()
   }
-  data; perso;
+  data; sysfolders; persofolder;total;
   loadfolder(){
-    this.storageservice.getStorageFolders().subscribe(folders=>{
-      this.data = folders.data;
-      this.perso = folders.personalFolders;
+    this.storageservice.getStorageFolders().subscribe(files=>{
+      this.total = files.total 
+      this.sysfolders = files.folders.systemFolders;
+      this.persofolder = files.folders.personalFolders;
+      this.data = files.data;
     })
   }
 }
