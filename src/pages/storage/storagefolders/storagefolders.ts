@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { StorageServiceProvider } from '../../../providers/storage-service/storage-service'
 
 @Component({
   selector: 'page-storagefolders',
@@ -7,11 +8,17 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class StorageFolders {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private storageservice: StorageServiceProvider) {
+      this.loadfolder()
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad StoragefoldersPage');
+  data; perso;
+  loadfolder(){
+    this.storageservice.getStorageFolders().subscribe(folders=>{
+      this.data = folders.data;
+      this.perso = folders.personalFolders;
+    })
   }
-
 }

@@ -19,11 +19,14 @@ import { CalendarsFolders } from '../pages/calendars/calendarsfolders/calendarsF
 import { StorageFolders } from '../pages/storage/storagefolders/storagefolders';
 import { NotesFolders } from '../pages/notes/notesfolders/notesfolders';
 import { TasksFolders } from '../pages/tasks/tasksfolders/tasksfolders';
-
+import { AbookslistPage } from '../pages/abooks/abookslist/abookslist'
 import { HomeServiceProvider } from '../providers/home-service/home-service';
 import { LoginService } from '../providers/login-service/login-service';
 import { Badge } from '@ionic-native/badge';
 import { MailsServiceProvider } from '../providers/mails-service/mails-service';
+import { AbooksService } from '../providers/abooks-service/abooks-service';
+import { CalendarsServiceProvider } from '../providers/calendars-service/calendars-service';
+import { StorageServiceProvider } from '../providers/storage-service/storage-service';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { MailsServiceProvider } from '../providers/mails-service/mails-service';
     MailsFolders,
     MailsinglePage,
     AbooksFolders,
+    AbookslistPage,
     CalendarsFolders,
     StorageFolders,
     NotesFolders,
@@ -51,6 +55,7 @@ import { MailsServiceProvider } from '../providers/mails-service/mails-service';
     MailsFolders,
     MailsinglePage,
     AbooksFolders,
+    AbookslistPage,
     CalendarsFolders,
     StorageFolders,
     NotesFolders,
@@ -68,6 +73,9 @@ import { MailsServiceProvider } from '../providers/mails-service/mails-service';
     HomeServiceProvider,
     LoginService,
     MailsServiceProvider,
+    AbooksService,
+    CalendarsServiceProvider,
+    StorageServiceProvider,
   ]
 })
 export class AppModule {}

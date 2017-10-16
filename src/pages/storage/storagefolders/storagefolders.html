@@ -14,5 +14,10 @@
 
 
 <ion-content padding>
+  <ion-list>
+    <ion-item text-wrap *ngFor="let f of data">
+      {{ f.icon }} /{{ f.name }}
+    </ion-item>
+  </ion-list>
 
 </ion-content>

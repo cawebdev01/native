@@ -7,12 +7,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>abooksfolders</ion-title>
+    <ion-title>abooks</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item text-wrap *ngFor="let a of abooks">
+      <p (click)="contactslist(a.objectId)">{{ a.label }}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>

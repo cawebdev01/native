@@ -43,6 +43,9 @@
           {{ mail.date }} <br>
           {{ mail.subject }} 
         </p> 
+      <button ion-button icon-only *ngIf="mail.icoattach == true">
+        <ion-icon name="attach"></ion-icon>
+      </button>
     </ion-item>  
   </ion-list>  
 </ion-content>

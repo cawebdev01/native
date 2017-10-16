@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the CalendarsfoldersPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { CalendarsServiceProvider } from '../../../providers/calendars-service/calendars-service'
 
 @Component({
   selector: 'page-calendarsfolders',
@@ -14,11 +8,18 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class CalendarsFolders {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private calService: CalendarsServiceProvider,
+  ) {
+    this.loadCals()
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CalendarsfoldersPage');
+  status; calendars;
+  loadCals(){
+    this.calService.getCalslist().subscribe(cals =>{
+      this.status = cals.status;
+      this.calendars = cals.calendars;
+    })
   }
-
 }
