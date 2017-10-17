@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { NotesServiceProvider } from '../../../providers/notes-service/notes-service'
+import { NotesServiceProvider } from '../../../providers/notes-service/notes-service';
+import { NoteslistPage } from '../noteslist/noteslist';
 
 @Component({
   selector: 'page-notesfolders',
@@ -22,4 +23,8 @@ export class NotesFolders {
       this.itemslists = notes.itemslists;
     })
   }
+  loadNotes(nid){
+    this.navCtrl.push(NoteslistPage, {"nid": nid})
+  }
+
 }

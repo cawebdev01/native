@@ -1,0 +1,26 @@
+<!--
+  Generated template for the StoragefilesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>storagefiles</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item text-wrap *ngFor="let d of data">
+      <ion-thumbnail *ngIf="d.contentType=='image/jpeg' || d.contentType=='image/png' || d.contentType=='image/gif'">
+       <img src="{{ d.image }}" >
+      </ion-thumbnail> 
+      {{ d.label }} <br>
+      {{ d.size }}
+    </ion-item>
+  </ion-list>
+</ion-content>

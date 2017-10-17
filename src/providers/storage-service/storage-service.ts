@@ -12,7 +12,7 @@ sessionid; url;
   getStorageFolders(){
     return this.http.get(this.url+'/cgi-bin/ajaxfile?ACT_FIL_GOPAGE=1&GOPAGE=1&EXPANDALL=1&tpl=main&SID=3&SENS=1&ID='+this.sessionid).map((res:Response)=> res.json())
   }
-  getStorageContent(){
-    return this.http.get(this.url+'/cgi-bin/ajaxfile?ACT_FIL_GOPAGE=1&GOPAGE=1&tpl=file_list&SID=3&SENS=1&ID='+this.sessionid)
+  getStorageContent(folder){
+    return this.http.get(this.url+'/cgi-bin/ajaxfile?ACT_FIL_GOPAGE=1&GOPAGE=1&tpl=file_list&SID=3&SENS=1&ID='+this.sessionid+'&CURRENTUID='+folder+'&FUID=&EXPZIP=0&EPLCSET=&SHRUID=').map((res:Response)=> res.json())
   }
 }

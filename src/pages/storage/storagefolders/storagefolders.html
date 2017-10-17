@@ -8,21 +8,12 @@
 
 
 <ion-content padding>
-  
-  <h2>System folders</h2>
   <ion-list>
-    <ion-item text-wrap *ngFor="let sf of sysfolders">
-     {{ sf.label }} /{{ sf.objectId }}
+  <ion-item text-wrap *ngFor="let pf of persofolder">
+      <p (click)="getdetails(pf.objectId)">{{ pf.label | uppercase }} </p>
     </ion-item>
   </ion-list>
-  <hr>
-  <h2>Personnal folders</h2>
-  <ion-list>
-    <ion-item text-wrap *ngFor="let pf of persofolder">
-      {{ pf.label }} / {{ pf.objectId }}
-    </ion-item>
-  </ion-list>
-total:   {{ total }} <br>
-   data:  {{ data | json}} <br >
+<!--total:   {{ total }} <br>
+   data:  {{ data | json}} <br -->
   
 </ion-content>

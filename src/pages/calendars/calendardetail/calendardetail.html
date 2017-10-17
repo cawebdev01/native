@@ -1,5 +1,5 @@
 <!--
-  Generated template for the CalendarsfoldersPage page.
+  Generated template for the CalendardetailPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>calendarsfolders</ion-title>
+    <ion-title>calendardetail</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,10 +15,11 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item text-wrap *ngFor="let cal of calendars">
-      <p (click)="caldetails(cal.objectId)">{{ cal.name }} <br>
-        {{ cal.color }}
-      </p>
+    <ion-item text-wrap *ngFor="let d of data">
+      <h2>{{ d.title }}</h2>
+      calendar: {{ d.calId }}<br> 
+      date: {{ d.date }} <br>
+
     </ion-item>
   </ion-list>
 </ion-content>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { CalendarsServiceProvider } from '../../../providers/calendars-service/calendars-service'
-
+import { CalendarsServiceProvider } from '../../../providers/calendars-service/calendars-service';
+import { CalendardetailPage } from '../calendardetail/calendardetail';
 @Component({
   selector: 'page-calendarsfolders',
   templateUrl: 'calendarsfolders.html',
@@ -21,5 +21,8 @@ export class CalendarsFolders {
       this.status = cals.status;
       this.calendars = cals.calendars;
     })
+  }
+  caldetails(coid){
+    this.navCtrl.push(CalendardetailPage, {"calname": coid})
   }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 //import { Calendar } from '@ionic-native/calendar';
-//import { BackgroundMode } from '@ionic-native/background-mode';
+import { BackgroundMode } from '@ionic-native/background-mode';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Badge } from '@ionic-native/badge';
 
@@ -25,7 +25,7 @@ export class HomePage {
 	constructor(
 		public navCtrl: NavController,
 	//	private calendar: Calendar,
-	//	private backgroundMode: BackgroundMode,
+		private backgroundMode: BackgroundMode,
 		private localnotification : LocalNotifications,
 		private homeService : HomeServiceProvider,
 		private loginService : LoginService,

@@ -13,10 +13,8 @@ abid; cuid;
     public navParams: NavParams,
     private abookservice : AbooksService,
   ) {
-    //this.abid = navParams.get("abid");
-    //this.cuid = navParams.get("cuid");
-    this.abid = "_xamUAB:1";
-    this.cuid = 6;
+    this.abid = navParams.get("abid");
+    this.cuid = navParams.get("cuid");
     this.loadContact()
   }
   cn; mobile;

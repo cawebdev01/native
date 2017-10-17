@@ -25,8 +25,6 @@ export class AbookslistPage {
     })
   }
   contactdetail(objectId, abid){
-    this.navCtrl.push(AbookcontactPage, {"abid": abid, "cuid": objectId})
-    console.log(abid);
-    console.log(objectId);
+    this.navCtrl.push(AbookcontactPage, {"abid": abid, "cuid": objectId})  
   }
 }

@@ -16,10 +16,14 @@ import { MailsFolders } from '../pages/mails/mailsfolders/mailsfolders';
 import { MailsinglePage } from '../pages/mails/mailsingle/mailsingle'; 
 import { AbooksFolders} from '../pages/abooks/abooksfolders/abooksfolders';
 import { CalendarsFolders } from '../pages/calendars/calendarsfolders/calendarsFolders';
+import { CalendardetailPage } from '../pages/calendars/calendardetail/calendardetail';
 import { StorageFolders } from '../pages/storage/storagefolders/storagefolders';
+import { StoragefilesPage} from '../pages/storage/storagefiles/storagefiles';
 import { NotesFolders } from '../pages/notes/notesfolders/notesfolders';
 import { TasksFolders } from '../pages/tasks/tasksfolders/tasksfolders';
-import { AbookslistPage } from '../pages/abooks/abookslist/abookslist'
+import { AbookslistPage } from '../pages/abooks/abookslist/abookslist';
+import { NoteslistPage } from '../pages/notes/noteslist/noteslist';
+import { NotedetailsPage } from '../pages/notes/notedetails/notedetails';
 import { HomeServiceProvider } from '../providers/home-service/home-service';
 import { LoginService } from '../providers/login-service/login-service';
 import { Badge } from '@ionic-native/badge';
@@ -41,8 +45,12 @@ import { AbookcontactPage } from '../pages/abooks/abookcontact/abookcontact'
     AbookcontactPage,
     AbookslistPage,
     CalendarsFolders,
+    CalendardetailPage,
     StorageFolders,
+    StoragefilesPage,
     NotesFolders,
+    NoteslistPage,
+    NotedetailsPage,
     TasksFolders,
   ],
   imports: [
@@ -61,8 +69,12 @@ import { AbookcontactPage } from '../pages/abooks/abookcontact/abookcontact'
     AbookslistPage,
     AbookcontactPage,
     CalendarsFolders,
+    CalendardetailPage,
     StorageFolders,
+    StoragefilesPage,
     NotesFolders,
+    NoteslistPage,
+    NotedetailsPage,
     TasksFolders,
   ],
   providers: [
