@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { MailsServiceProvider } from '../../../providers/mails-service/mails-service';
 
 import { MailsinglePage } from '../mailsingle/mailsingle'; 
+import { NewmailPage } from '../newmail/newmail';
 
 @Component({
   selector: 'page-mailsfolders',
@@ -35,5 +36,8 @@ export class MailsFolders {
   }
   public loadMail(objectId, folder){
     this.navCtrl.push(MailsinglePage, {"msgid" : objectId, "folderid": folder} )
+  }
+  public createMail(){
+    this.navCtrl.push(NewmailPage)
   }
 }

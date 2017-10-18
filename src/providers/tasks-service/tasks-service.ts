@@ -10,6 +10,9 @@ export class TasksServiceProvider {
     this.url = localStorage.getItem('url');
   }
   getTasksList(){
-    return this.http.get(this.url+'/cgi-bin/ajaxtasks?ACT_TASK_LIST=1&GOPAGE=1&TLUID=&FILTER=7&SORT=&tpl=tasklist_content&ID='+this.sessionid).map((res:Response)=>res.json())
+    return this.http.get(this.url+'/cgi-bin/ajaxtasks?ACT_TASKLIST_LIST=1&GOPAGE=1&TLUID=&FILTER=&SORT=&tpl=tasklist_list&ID='+this.sessionid).map((res:Response)=>res.json());
+  }
+  getTasks(tasklist){
+    return this.http.get(this.url+'/cgi-bin/ajaxtasks?ACT_TASK_LIST=1&GOPAGE=1&TLUID='+tasklist+'&FILTER=&SORT=&tpl=tasklist_content&ID='+this.sessionid).map((res:Response)=>res.json());
   }
 }
