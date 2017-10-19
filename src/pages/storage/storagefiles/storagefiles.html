@@ -16,11 +16,12 @@
 <ion-content padding>
   <ion-list>
     <ion-item text-wrap *ngFor="let d of data">
+      <p (click)="loadfile(d.image, d.contentType)">
       <ion-thumbnail *ngIf="d.contentType=='image/jpeg' || d.contentType=='image/png' || d.contentType=='image/gif'">
        <img src="{{ d.image }}" >
       </ion-thumbnail> 
       {{ d.label }} <br>
-      {{ d.size }}
+      {{ d.size }}</p>
     </ion-item>
   </ion-list>
 </ion-content>

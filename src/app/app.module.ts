@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Calendar } from '@ionic-native/calendar';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { FileOpener } from '@ionic-native/file-opener';
 
 import { MyApp } from './app.component';
 
@@ -19,7 +20,8 @@ import { AbooksFolders} from '../pages/abooks/abooksfolders/abooksfolders';
 import { CalendarsFolders } from '../pages/calendars/calendarsfolders/calendarsFolders';
 import { CalendardetailPage } from '../pages/calendars/calendardetail/calendardetail';
 import { StorageFolders } from '../pages/storage/storagefolders/storagefolders';
-import { StoragefilesPage} from '../pages/storage/storagefiles/storagefiles';
+import { StoragefilesPage } from '../pages/storage/storagefiles/storagefiles';
+import { StoragedetailPage } from '../pages/storage/storagedetail/storagedetail'; 
 import { NotesFolders } from '../pages/notes/notesfolders/notesfolders';
 import { TasksFolders } from '../pages/tasks/tasksfolders/tasksfolders';
 import { TasksdetailsPage } from '../pages/tasks/tasksdetails/tasksdetails';
@@ -52,6 +54,7 @@ import { AbookcontactPage } from '../pages/abooks/abookcontact/abookcontact'
     CalendardetailPage,
     StorageFolders,
     StoragefilesPage,
+    StoragedetailPage,
     NotesFolders,
     NoteslistPage,
     NotedetailsPage,
@@ -79,6 +82,7 @@ import { AbookcontactPage } from '../pages/abooks/abookcontact/abookcontact'
     CalendardetailPage,
     StorageFolders,
     StoragefilesPage,
+    StoragedetailPage,
     NotesFolders,
     NoteslistPage,
     NotedetailsPage,
@@ -91,7 +95,8 @@ import { AbookcontactPage } from '../pages/abooks/abookcontact/abookcontact'
     SplashScreen,
     Calendar,
    // Loading,
-  	BackgroundMode,
+    BackgroundMode,
+    FileOpener,
     LocalNotifications,
     Badge,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { StorageServiceProvider } from '../../../providers/storage-service/storage-service' 
+import { StoragedetailPage } from '../storagedetail/storagedetail'
 
 @Component({
   selector: 'page-storagefiles',
@@ -23,5 +24,8 @@ export class StoragefilesPage {
       this.total = file.total;
       this.page = file.pageInfo;
     })
+  }
+  loadfile(path, type){
+    this.navCtrl.push(StoragedetailPage, {"path": path, "type": type})
   }
 }
