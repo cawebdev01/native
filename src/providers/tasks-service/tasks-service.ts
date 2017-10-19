@@ -15,4 +15,7 @@ export class TasksServiceProvider {
   getTasks(tasklist){
     return this.http.get(this.url+'/cgi-bin/ajaxtasks?ACT_TASK_LIST=1&GOPAGE=1&TLUID='+tasklist+'&FILTER=&SORT=&tpl=tasklist_content&ID='+this.sessionid).map((res:Response)=>res.json());
   }
+  getTaskdetail(tasklist, taskid){
+    return this.http.get(this.url+'/cgi-bin/ajaxtasks?ACT_TASK=1&TLUID='+tasklist+'&TUID='+taskid+'&tpl=taskedit&ID='+this.sessionid).map((res:Response)=>res.json());
+  }
 }

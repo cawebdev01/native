@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { MailsServiceProvider } from '../../../providers/mails-service/mails-service';
+//import { MailsServiceProvider } from '../../../providers/mails-service/mails-service';
 
 @Component({
   selector: 'page-newmail',
@@ -12,7 +12,7 @@ export class NewmailPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private mailsservice : MailsServiceProvider,
+   // private mailsservice : MailsServiceProvider,
   ) {
   }
   send(){

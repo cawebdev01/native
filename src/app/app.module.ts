@@ -22,6 +22,7 @@ import { StorageFolders } from '../pages/storage/storagefolders/storagefolders';
 import { StoragefilesPage} from '../pages/storage/storagefiles/storagefiles';
 import { NotesFolders } from '../pages/notes/notesfolders/notesfolders';
 import { TasksFolders } from '../pages/tasks/tasksfolders/tasksfolders';
+import { TasksdetailsPage } from '../pages/tasks/tasksdetails/tasksdetails';
 import { AbookslistPage } from '../pages/abooks/abookslist/abookslist';
 import { NoteslistPage } from '../pages/notes/noteslist/noteslist';
 import { NotedetailsPage } from '../pages/notes/notedetails/notedetails';
@@ -56,6 +57,7 @@ import { AbookcontactPage } from '../pages/abooks/abookcontact/abookcontact'
     NotedetailsPage,
     TasksFolders,
     TasklistPage,
+    TasksdetailsPage,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +84,7 @@ import { AbookcontactPage } from '../pages/abooks/abookcontact/abookcontact'
     NotedetailsPage,
     TasksFolders,
     TasklistPage,
+    TasksdetailsPage,
   ],
   providers: [
     StatusBar,

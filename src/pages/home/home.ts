@@ -21,7 +21,7 @@ import { LoginPage } from '../login/login';
   templateUrl: 'home.html'
 })
 export class HomePage {
-	task; sessionid; url; email; password;
+	task; sessionid; url; email; password; testbg
 	constructor(
 		public navCtrl: NavController,
 	//	private calendar: Calendar,
@@ -31,14 +31,25 @@ export class HomePage {
 		private loginService : LoginService,
 		private badge : Badge,
 	) {
+		this.backgroundMode.enable();
 		this.newMails();
-		this.task = setInterval(() =>{
+		this.testbg = this.backgroundMode.isEnabled();
+		if(this.testbg == 0){
+			this.task = setInterval(() =>{
 			this.newMails()
-		}, 60000);
+			}, 120000);
+		
+		}
+		else{
+			this.task =setInterval(()=>{
+				this.newMails()
+			}, 60000)
+		}
 		this.email = localStorage.getItem('email');
 		this.url = localStorage.getItem('url');
 		this.sessionid = localStorage.getItem('sessionid');
 		this.password = localStorage.getItem('password');
+		
 	}
 	public notif(){
 		

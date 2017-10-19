@@ -25,7 +25,7 @@ export class MailsFolders {
     
   }
   public loadMails(folderid){
-    console.log(folderid);
+    //console.log(folderid);
     this.mailsservice.getMails(folderid).subscribe(mails =>{
       this.mails = mails.data;
       this.oid = mails.data.objectId;

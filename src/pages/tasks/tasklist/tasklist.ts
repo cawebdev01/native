@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { TasksServiceProvider } from '../../../providers/tasks-service/tasks-service'
+import { TasksdetailsPage } from '../tasksdetails/tasksdetails';
 
 @Component({
   selector: 'page-tasklist',
@@ -21,5 +22,8 @@ data
     this.tasksservice.getTasks(this.tid).subscribe(tasks =>{
       this.data = tasks.data;
     })
+  }
+  openTask(taskid){
+    this.navCtrl.push(TasksdetailsPage, {"list": this.tid, "tid": taskid})
   }
 }

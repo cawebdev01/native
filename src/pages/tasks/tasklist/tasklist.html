@@ -16,9 +16,11 @@
 <ion-content padding>
   <ion-list>
     <ion-item text-wrap *ngFor="let t of data">
+    <p (click)="openTask(t.objectId)">
       {{ t.label }} <br>
       {{ t.eDate }} <br>
       {{ t.status }}
+    </p>
     </ion-item>
   </ion-list>
 </ion-content>
