@@ -15,7 +15,8 @@
 
 <ion-content padding>
   from : {{ from }} <br>
-  to: {{ to }} <br>
+  to: <span *ngFor="let t of to">{{ t.addr }}<br></span>
+  <p *ngIf="cc !=''">cc: <span *ngFor="let c of cc">{{ c.addr }}<br></span></p>
   <p [innerHTML]="sub"></p><br>
   date: {{ date }} <br>
   <p [innerHTML]="text"></p>

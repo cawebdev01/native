@@ -22,30 +22,34 @@
   </ion-list>
 </ion-menu-->
 <ion-content>
-  <div id="topbuttons">
+  <!--div id="topbuttons"-->
     <!--button ion-button menuToggle icon-only>
         <ion-icon name="menu"></ion-icon>
     </button-->
     <!--button ion-button icon-only><ion-icon name="skip-backward" (click)=""></ion-icon></button-->
-  </div>
-  <br>
+  <!--/div>
+  <br-->
   <ion-list>
     <ion-item text-wrap *ngFor="let mail of mails">
-      <b *ngIf="mail.isUnread == true">
-        <p (click)="loadMail(mail.objectId, mail.objectFolder)">
-        from: {{ mail.from}} <br> 
-        {{ mail.date }} <br>
-        {{ mail.subject }} 
-        </p>
-      </b> 
-      <p *ngIf="mail.isUnread != true" (click)="loadMail(mail.objectId, mail.objectFolder)">
+      <ion-row>
+        <ion-col col-10><b *ngIf="mail.isUnread == true">
+          <p (click)="loadMail(mail.objectId, mail.objectFolder)">
           from: {{ mail.from}} <br> 
           {{ mail.date }} <br>
           {{ mail.subject }} 
-        </p> 
-      <button ion-button icon-only *ngIf="mail.icoattach == true">
-        <ion-icon name="attach"></ion-icon>
-      </button>
+          </p>
+        </b> 
+        <p *ngIf="mail.isUnread != true" (click)="loadMail(mail.objectId, mail.objectFolder)">
+            from: {{ mail.from}} <br> 
+            {{ mail.date }} <br>
+            {{ mail.subject }} 
+          </p> </ion-col>
+      <ion-col text-right>
+        <ion-icon name="attach" *ngIf="mail.icoattach == true"></ion-icon><br>
+        <ion-icon name="flag" *ngIf="mail.isFlagged != false"></ion-icon><br>
+        <ion-icon name="information-circle" *ngIf="mail.isPriority == true"></ion-icon>
+      </ion-col>
+      </ion-row>
     </ion-item>  
   </ion-list>  
 </ion-content>

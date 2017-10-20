@@ -17,9 +17,9 @@ export class StoragedetailPage {
     this.type = navParams.get("type");
     this.open(this.path, this.type)
   }
-open(path, type){
-  this.fileOpener.open(path, type)
+open(path, type){}
+ /* this.fileOpener.open(path, type)
   .then(()=> console.log('file is opened'))
   .catch(e => console.log('Error opening file', e))
-}
+}*/
 }
