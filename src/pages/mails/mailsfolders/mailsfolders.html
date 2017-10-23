@@ -8,6 +8,22 @@
   <ion-navbar>
     <ion-title>{{ title }}</ion-title>
   </ion-navbar>
+  <ion-row>
+    <!--ion-col col-10> 
+      <ion-input type="text" placeholder="Search&hellip;" name="search" ></ion-input>
+    </ion-col>
+    <ion-col col-2>
+      <button>
+        <ion-icon name="search" right class="big"></ion-icon>
+      </button>
+    </ion-col-->
+    <ion-searchbar
+    [(ngModel)]="myInput"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="onInput($event)"
+    (ionCancel)="onCancel($event)">
+  </ion-searchbar>
+  </ion-row>
 </ion-header>
 
 <!--ion-menu [content]="content">
@@ -30,27 +46,55 @@
   <!--/div>
   <br-->
   <ion-list>
-    <ion-item text-wrap *ngFor="let mail of mails">
-      <ion-row>
-        <ion-col col-10><b *ngIf="mail.isUnread == true">
-          <p (click)="loadMail(mail.objectId, mail.objectFolder)">
-          from: {{ mail.from}} <br> 
-          {{ mail.date }} <br>
-          {{ mail.subject }} 
-          </p>
-        </b> 
-        <p *ngIf="mail.isUnread != true" (click)="loadMail(mail.objectId, mail.objectFolder)">
+    <!--ion-item *ngFor="let item of items">
+      {{ item }}
+    </ion-item-->
+    <div *ngIf="items">
+      <ion-item text-wrap *ngFor="let mail of items">
+        <ion-row>
+          <ion-col col-10><b *ngIf="mail.isUnread == true">
+            <p (click)="loadMail(mail.objectId, mail.objectFolder)">
             from: {{ mail.from}} <br> 
             {{ mail.date }} <br>
             {{ mail.subject }} 
-          </p> </ion-col>
-      <ion-col text-right>
-        <ion-icon name="attach" *ngIf="mail.icoattach == true"></ion-icon><br>
-        <ion-icon name="flag" *ngIf="mail.isFlagged != false"></ion-icon><br>
-        <ion-icon name="information-circle" *ngIf="mail.isPriority == true"></ion-icon>
-      </ion-col>
-      </ion-row>
-    </ion-item>  
+            </p>
+          </b> 
+          <p *ngIf="mail.isUnread != true" (click)="loadMail(mail.objectId, mail.objectFolder)">
+              from: {{ mail.from}} <br> 
+              {{ mail.date }} <br>
+              {{ mail.subject }} 
+            </p> </ion-col>
+        <ion-col text-right>
+          <ion-icon name="attach" *ngIf="mail.icoattach == true"></ion-icon><br>
+          <ion-icon name="flag" *ngIf="mail.isFlagged != false"></ion-icon><br>
+          <ion-icon name="information-circle" *ngIf="mail.isPriority == true"></ion-icon>
+        </ion-col>
+        </ion-row>
+      </ion-item> 
+    </div> 
+    <div *ngIf="!items">
+      <ion-item text-wrap *ngFor="let mail of mails">
+          <ion-row>
+            <ion-col col-10><b *ngIf="mail.isUnread == true">
+              <p (click)="loadMail(mail.objectId, mail.objectFolder)">
+              from: {{ mail.from}} <br> 
+              {{ mail.date }} <br>
+              {{ mail.subject }} 
+              </p>
+            </b> 
+            <p *ngIf="mail.isUnread != true" (click)="loadMail(mail.objectId, mail.objectFolder)">
+                from: {{ mail.from}} <br> 
+                {{ mail.date }} <br>
+                {{ mail.subject }} 
+              </p> </ion-col>
+            <ion-col text-right>
+              <ion-icon name="attach" *ngIf="mail.icoattach == true"></ion-icon><br>
+              <ion-icon name="flag" *ngIf="mail.isFlagged != false"></ion-icon><br>
+              <ion-icon name="information-circle" *ngIf="mail.isPriority == true"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-item> 
+      </div> 
   </ion-list>  
 </ion-content>
 <ion-footer>

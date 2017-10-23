@@ -10,7 +10,7 @@ import { NewmailPage } from '../newmail/newmail';
   templateUrl: 'mailsfolders.html',
 })
 export class MailsFolders {
-  title: string; mails:[any]; pageinfo:{any}; impFolder:[any]; dataUnread:[any]; oid; folderid; refresh;
+  title: string; public mails:[any]; pageinfo:{any}; impFolder:[any]; dataUnread:[any]; oid; folderid; refresh;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -21,8 +21,7 @@ export class MailsFolders {
     this.loadMails(this.folderid)
     this.refresh = setInterval(() =>{
 			this.loadMails(this.folderid)
-		}, 60000);
-    
+    }, 60000); 
   }
   public loadMails(folderid){
     //console.log(folderid);
@@ -32,7 +31,27 @@ export class MailsFolders {
       this.pageinfo = mails.pageInfo;
       this.impFolder = mails.importantFolders;
       this.dataUnread = mails.dataUnread;
-    })
+      
+    });
+  }
+  items; texts
+  setItemsSearch(){
+    this.items = this.mails
+  }
+  onInput(ev: any){
+    this.setItemsSearch();
+    //console.log(this.items);
+    let val = ev.target.value;
+    if(val && val.trim() !== ''){
+      this.items = this.items.filter(function(item){
+        return (item.subject.toLowerCase().includes(val.toLowerCase())
+        + item.from.toLowerCase().includes(val.toLowerCase()) +
+        item.label.toLowerCase().includes(val.toLowerCase()) 
+        + item.text.toLowerCase().includes(val.toLowerCase()));
+        
+      })
+      console.log(this.items)
+    }
   }
   public loadMail(objectId, folder){
     this.navCtrl.push(MailsinglePage, {"msgid" : objectId, "folderid": folder} )
