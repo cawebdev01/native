@@ -15,9 +15,9 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item text-wrap *ngFor="let cal of calendars">
-      <p (click)="caldetails(cal.objectId)">{{ cal.name }} <br>
-        {{ cal.color }}
+    <ion-item text-wrap *ngFor="let cal of calendars" text-center>
+      <p (click)="caldetails(cal.objectId)" [ngStyle]="{border : '5px solid' + cal.color } "><br>
+        {{ cal.name }} <br><br>
       </p>
     </ion-item>
   </ion-list>

@@ -9,6 +9,8 @@
     Welcome on your application
   </h3>
   <p>Your email is : {{ email }}</p>
+
+  
   <button ion-button class="mails-btn" full (click)="mails()">Mails<ion-badge item-end *ngIf="this.newMsg!=0">({{ newMsg }})</ion-badge></button><br>
   <button ion-button class="abooks-btn" full (click)="contacts()">Address Books</button><br>
   <button ion-button class="calendars-btn" full (click)="calendars()">Calendars</button><br>
@@ -22,4 +24,14 @@
       <ion-icon name="log-out"></ion-icon>
     </button>
   </ion-buttons>
+  <ion-fab bottom left #fab1>
+    <button ion-fab><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="right">
+      <button ion-fab (click)="mails()"><ion-icon name="mail"></ion-icon></button>
+      <button ion-fab (click)="calendars()"><ion-icon name="calendar"></ion-icon></button>
+      <button ion-fab (click)="notes()"><ion-icon name="clipboard"></ion-icon></button>
+      <button ion-fab (click)="tasks()"><ion-icon name="clock"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
 </ion-footer>

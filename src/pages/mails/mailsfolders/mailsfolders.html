@@ -1,28 +1,14 @@
-<!--
-  Generated template for the MailsfoldersPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <ion-title>{{ title }}</ion-title>
   </ion-navbar>
   <ion-row>
-    <!--ion-col col-10> 
-      <ion-input type="text" placeholder="Search&hellip;" name="search" ></ion-input>
-    </ion-col>
-    <ion-col col-2>
-      <button>
-        <ion-icon name="search" right class="big"></ion-icon>
-      </button>
-    </ion-col-->
     <ion-searchbar
-    [(ngModel)]="myInput"
-    [showCancelButton]="shouldShowCancel"
-    (ionInput)="onInput($event)"
-    (ionCancel)="onCancel($event)">
-  </ion-searchbar>
+      [(ngModel)]="myInput"
+      [showCancelButton]="shouldShowCancel"
+      (ionInput)="onInput($event)"
+      (ionCancel)="onCancel($event)">
+    </ion-searchbar>
   </ion-row>
 </ion-header>
 
@@ -46,9 +32,6 @@
   <!--/div>
   <br-->
   <ion-list>
-    <!--ion-item *ngFor="let item of items">
-      {{ item }}
-    </ion-item-->
     <div *ngIf="items">
       <ion-item text-wrap *ngFor="let mail of items">
         <ion-row>
