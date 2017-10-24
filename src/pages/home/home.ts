@@ -15,6 +15,10 @@ import { StorageFolders } from '../storage/storagefolders/storagefolders';
 import { NotesFolders } from '../notes/notesfolders/notesfolders';
 import { TasksFolders } from '../tasks/tasksfolders/tasksfolders';
 import { LoginPage } from '../login/login'; 
+import { NewmailPage } from '../mails/newmail/newmail';
+import { NeweventPage } from '../calendars/newevent/newevent';
+import { NewnotePage } from '../notes/newnote/newnote'
+import { NewtaskPage } from '../tasks/newtask/newtask'
 
 @Component({
   selector: 'page-home',
@@ -91,11 +95,17 @@ export class HomePage {
 	mails(){ 
 		this.navCtrl.push(MailsFolders, {"folderid": "SU5CT1g="})
 	}
+	newmail(){
+		this.navCtrl.push(NewmailPage)
+	}
 	contacts(){ 
 		this.navCtrl.push(AbooksFolders)	
 	}
 	calendars(){ 
 		this.navCtrl.push(CalendarsFolders)	
+	}
+	newevent(){
+		this.navCtrl.push(NeweventPage)
 	}
 	storages(){ 
 		this.navCtrl.push(StorageFolders)	
@@ -105,6 +115,12 @@ export class HomePage {
 	}
 	tasks(){ 
 		this.navCtrl.push(TasksFolders)			
+	}
+	newtask(){
+		this.navCtrl.push(NewtaskPage)
+	}
+	newnote(){
+		this.navCtrl.push(NewnotePage)
 	}
 	logout(){
 		this.loginService.logout();

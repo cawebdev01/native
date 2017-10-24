@@ -16,6 +16,7 @@ import { LoginPage } from '../pages/login/login';
 import { MailsFolders } from '../pages/mails/mailsfolders/mailsfolders';
 import { MailsinglePage } from '../pages/mails/mailsingle/mailsingle'; 
 import { NewmailPage } from '../pages/mails/newmail/newmail';
+import { NeweventPage } from '../pages/calendars/newevent/newevent';
 import { AbooksFolders} from '../pages/abooks/abooksfolders/abooksfolders';
 import { CalendarsFolders } from '../pages/calendars/calendarsfolders/calendarsFolders';
 import { CalendardetailPage } from '../pages/calendars/calendardetail/calendardetail';
@@ -39,6 +40,9 @@ import { NotesServiceProvider } from '../providers/notes-service/notes-service';
 import { TasksServiceProvider } from '../providers/tasks-service/tasks-service';
 import { TasklistPage } from '../pages/tasks/tasklist/tasklist';
 import { AbookcontactPage } from '../pages/abooks/abookcontact/abookcontact'
+import { NewnotePage } from '../pages/notes/newnote/newnote'
+import { NewtaskPage } from '../pages/tasks/newtask/newtask'
+
 @NgModule({
   declarations: [
     MyApp,
@@ -52,6 +56,9 @@ import { AbookcontactPage } from '../pages/abooks/abookcontact/abookcontact'
     AbookslistPage,
     CalendarsFolders,
     CalendardetailPage,
+    NeweventPage,
+    NewnotePage,
+    NewtaskPage,
     StorageFolders,
     StoragefilesPage,
     StoragedetailPage,
@@ -75,11 +82,14 @@ import { AbookcontactPage } from '../pages/abooks/abookcontact/abookcontact'
     MailsFolders,
     MailsinglePage,
     NewmailPage,
+    NewnotePage,
+    NewtaskPage,
     AbooksFolders,
     AbookslistPage,
     AbookcontactPage,
     CalendarsFolders,
     CalendardetailPage,
+    NeweventPage,
     StorageFolders,
     StoragefilesPage,
     StoragedetailPage,

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form (ngSubmit)="createtask()" #registerForm="ngForm">
+    <ion-list inset>
+      <ion-item>
+        <ion-label>Title</ion-label>
+        <ion-input type="text"  name="title" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Start Date</ion-label>
+        <ion-input type="date"  name="StartDate" required></ion-input>
+      </ion-item>
+      <ion-item> 
+        <ion-label>Due Date</ion-label>
+        <ion-input type="date" name="Due Date"  required></ion-input>
+      </ion-item>
+      <ion-item> 
+        <ion-label>Priority</ion-label>
+        <ion-select multiple="false" required>
+          <ion-option *ngFor="let p of priorityList" [value]="p.value">{{ p.str }}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Status</ion-label>
+        <ion-select multiple="false" required>
+          <ion-option *ngFor="let s of statusList" [value]="s.value">{{ s.str }}</ion-option>
+        </ion-select>>
+      </ion-item>
+      <ion-item>
+        <ion-label>% Complete</ion-label>
+        <ion-range min="0" max="100" pin="true" required></ion-range> 
+      </ion-item>
+      <ion-item>
+        <ion-label>Note</ion-label>
+        <ion-input type="longtext"  name="note" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tasklist</ion-label>
+        <ion-input type=""  name="tasklist" required></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Create</button>
+  </form>
+</ion-content>
