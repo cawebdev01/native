@@ -26,6 +26,7 @@ import { StoragedetailPage } from '../pages/storage/storagedetail/storagedetail'
 import { NotesFolders } from '../pages/notes/notesfolders/notesfolders';
 import { TasksFolders } from '../pages/tasks/tasksfolders/tasksfolders';
 import { TasksdetailsPage } from '../pages/tasks/tasksdetails/tasksdetails';
+import { ModaltaskPage } from '../pages/tasks/modaltask/modaltask';
 import { AbookslistPage } from '../pages/abooks/abookslist/abookslist';
 import { NoteslistPage } from '../pages/notes/noteslist/noteslist';
 import { NotedetailsPage } from '../pages/notes/notedetails/notedetails';
@@ -50,6 +51,7 @@ import { NewtaskPage } from '../pages/tasks/newtask/newtask'
     LoginPage,
     MailsFolders,
     MailsinglePage,
+    ModaltaskPage,
     NewmailPage,
     AbooksFolders,
     AbookcontactPage,
@@ -81,6 +83,7 @@ import { NewtaskPage } from '../pages/tasks/newtask/newtask'
     LoginPage,
     MailsFolders,
     MailsinglePage,
+    ModaltaskPage,
     NewmailPage,
     NewnotePage,
     NewtaskPage,
