@@ -23,7 +23,7 @@ export class TasksServiceProvider {
       let header = new Headers()
       header.append('Content-Type', 'application/json')
       this.http.post(
-        this.url+'cgi-bin/ajaxtasks?ACT_TASK_SET=1&GOPAGE=1&COMMENT='+credentials.comment+'&EDAY='+credentials.eday+'&EMON='+credentials.emon+'&EYEAR='+credentials.eyear+'&NAME='+credentials.name+'&PERCENT='+credentials.percent+'&PRIORITY='+credentials.priority+'&SDAY='+credentials.sday+'&SMON='+credentials.smon+'&STATUS='+credentials.status+'&SYEAR='+credentials.syear+'&TLUID='+credentials.tluid+'&TUID=&tpl=tasklist_content&ID='+this.sessionid, JSON.stringify(credentials), {headers: header})
+        this.url+'/cgi-bin/ajaxtasks?ACT_TASK_SET=1&GOPAGE=1&COMMENT='+credentials.comment+'&EDAY='+credentials.eday+'&EMON='+credentials.emonth+'&EYEAR='+credentials.eyear+'&NAME='+credentials.name+'&PERCENT='+credentials.percent+'&PRIORITY='+credentials.priority+'&SDAY='+credentials.sday+'&SMON='+credentials.smonth+'&STATUS='+credentials.status+'&SYEAR='+credentials.syear+'&TLUID='+credentials.tlid+'&TUID=&tpl=tasklist_content&ID='+this.sessionid, JSON.stringify(credentials), {headers: header})
         .subscribe(res => { resolve(res.json()) }, (err) => { reject(err) })
     })
   }
