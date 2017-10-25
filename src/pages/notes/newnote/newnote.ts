@@ -1,25 +1,26 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { NotesServiceProvider } from '../../../providers/notes-service/notes-service'
 
-/**
- * Generated class for the NewnotePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
   selector: 'page-newnote',
   templateUrl: 'newnote.html',
 })
 export class NewnotePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  noteData = {title:'', noteliste:'', content:''}; notelist;
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private noteservice : NotesServiceProvider,
+  ) {
+    this.getlist()
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NewnotePage');
+  getlist(){
+    this.noteservice.getNotesList().subscribe(notes => {
+      this.notelist = notes.itemslists;
+    })
   }
-
+  createnote(){
+      console.log(this.noteData)
+  }
 }

@@ -7,8 +7,8 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'newmail.html',
 })
 export class NewmailPage {
-  email= localStorage.getItem("email");
-  message = {from: this.email, to:'', cc:'', cci:'', subject:'', content:'', attach:'', high:'', notice:''}
+  email= localStorage.getItem("email"); high: boolean; notice: boolean;
+  message = {from: this.email, to:'', cc:'', cci:'', subject:'', content:'', attach:'', high:'' , notice:''}
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -16,10 +16,11 @@ export class NewmailPage {
   ) {
   }
   send(){
+    //if(this.message.high == true || 
     /*this.mailsservice.sendMail(this.message).then((result)=>{
 
     })*/
-    console.log("message envoyé"/*+ this.message*/)
+    console.log(this.message)
   }
 
 }

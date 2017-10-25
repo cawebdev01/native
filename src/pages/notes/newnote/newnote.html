@@ -14,5 +14,21 @@
 
 
 <ion-content padding>
-
+  <ion-list inset>
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-input type="text" [(ngModel)]="noteData.title" name="title" required></ion-input>  
+    </ion-item>  
+    <ion-item>
+      <ion-label>Note List</ion-label>
+      <ion-select [(ngModel)]="noteData.noteliste">
+        <ion-option *ngFor="let nl of notelist" [value]="nl.objectId">{{ nl.label }}</ion-option> 
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Content</ion-label>
+      <ion-textarea rows="10" type="text" [(ngModel)]="noteData.content" name="content" required></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <button ion-button full (click)="createnote()">Create</button>
 </ion-content>

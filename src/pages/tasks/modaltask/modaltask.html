@@ -1,14 +1,14 @@
 <ion-header>
-
-<ion-navbar>
-<ion-buttons start>
-    <button ion-button (click)="dismiss()">Close</button>
-</ion-buttons>
-<ion-title>Modals</ion-title>
-</ion-navbar>
-
+    <ion-navbar>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">Close</button>
+        </ion-buttons>
+        <ion-title>New TaskList</ion-title>
+    </ion-navbar>
 </ion-header>
     
-    <ion-content padding>
-        le nom du dossier
-    </ion-content>
+<ion-content padding>
+    <ion-label>Name</ion-label>
+    <ion-input [(ngModel)]="tasklist.name" type="text" name="tasklistname" required></ion-input>
+    <button ion-button class="btn" full type="button" (click)="newdossier()">OK</button>
+</ion-content>
