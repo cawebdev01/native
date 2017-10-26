@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -22,11 +22,21 @@ export class MailsServiceProvider {
   }
   sendMail(credendials){
     return new Promise((resolve, reject) =>{
-      let header = new Headers()
-      header.append('Content-Type', 'application/json')
-      /*this.http.post(
-        this.url+'/cgi-bin/ajaxmail?CheckContainerAlert=&CONTID=&CompoReplyTo='+credendials.email+'&CompoState=1&AutoMsgID=&msgID=&msgStatus=&multiForward=&R_Folder=&HtmlText=<span%20style%3D"font-family%3A%20Arial%3B%20font-size%3A%20small%3B"%20xam-editor-container%3D"true">'+credendials.content+'<%2Fspan>&FormatHTML=0&ExtractPText=1&KeepCopy=1&NotifKind=&Priority=0&Compo_S_ListName=&Abook=&Sig_Sel=&CompoIdx=2&From=ca01%40d1.dc.xandmail.com&From2="ca01"%20<ca01%40d1.dc.xandmail.com>&CompoFFN=ca01&AttachCount=0&FileNb=0&PecRType=0&SentPath=&SaveOnRequestMsgID=&From2Select=ca01%40d1.dc.xandmail.com&AliasToVisible=&AliasTo=ca09%40d1.dc.xandmail.com%2C&AliasCcVisible=&AliasCc=&AliasBccVisible=&AliasBcc=&Subject=loipsume&Act_C_Send=1&ID='+this.sessionid+'&Cos=1'
-      )*/
+      /*let header = new Headers()
+      header.append('Content-Type', 'application/json')*/
+      this.http.post(
+        this.url+'/cgi-bin/ajaxmail?CheckContainerAlert=&CONTID=&CompoReplyTo='+credendials.from
+        +'&CompoState=1&AutoMsgID=&msgID=&msgStatus=&multiForward=&R_Folder=&HtmlText='+credendials.content
+        +'&FormatHTML=1&ExtractPText=1&KeepCopy=1&NotifKind='+credendials.notice+'&Priority='+credendials.high
+        +'&Compo_S_ListName=&Abook=&Sig_Sel=&CompoIdx=&From='+credendials.from
+        +'&AttachCount=&FileNb=&PecRtype=&SentPath=&SaveOnRequestMsgId='
+        +'&AliasTo='+credendials.to
+        +'&AliasCc='+credendials.cc
+        +'&AliasBcc='+credendials.bcc
+        +'&Subject='+credendials.subject
+        +'&Act_C_Send=1&ID='+this.sessionid+'&Cos=1', 
+        JSON.stringify(credendials)/*, {headers: header}*/
+      ).subscribe(res => { resolve(res.json())}, (err) => { reject(err)})
     })
   }
 }

@@ -17,7 +17,7 @@
       <ion-input type="email" placeholder="cc" name="cc" [(ngModel)]="message.cc" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="email" placeholder="cci" name="cci" [(ngModel)]="message.cci" required></ion-input>
+      <ion-input type="email" placeholder="cci" name="cci" [(ngModel)]="message.bcc" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-input type="string" placeholder="subject" name="subject" [(ngModel)]="message.subject" required></ion-input>
@@ -25,16 +25,16 @@
     <ion-item>
       <ion-textarea rows="10" placeholder="content" name="content" [(ngModel)]="message.content" required></ion-textarea>
     </ion-item>
-    <ion-item>
+    <!--ion-item>
       <ion-input type="file" placeholder="attach" name="attach" [(ngModel)]="message.attach" required></ion-input>
-    </ion-item>
+    </ion-item-->
     <ion-item>
       <ion-label> High</ion-label>
-      <ion-checkbox [(ngModel)]="message.high"></ion-checkbox> 
+      <ion-checkbox [(ngModel)]="message.high" checked="false"></ion-checkbox> 
     </ion-item>
     <ion-item>
       <ion-label>Notice </ion-label>
-      <ion-checkbox [(ngModel)]="message.notice"></ion-checkbox>
+      <ion-checkbox [(ngModel)]="message.notice" checked="false"></ion-checkbox>
     </ion-item>
     <!--button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Send</button-->
       <button ion-button class="submit-btn" full type="submit" (click)="send()">Send</button>
