@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule, /*Loading*/ } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, LoadingController } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Calendar } from '@ionic-native/calendar';
@@ -107,7 +107,7 @@ import { NewtaskPage } from '../pages/tasks/newtask/newtask'
     StatusBar,
     SplashScreen,
     Calendar,
-   // Loading,
+    LoadingController,
     BackgroundMode,
     FileOpener,
     LocalNotifications,

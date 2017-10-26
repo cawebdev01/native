@@ -32,4 +32,15 @@ export class MailsinglePage {
     })
     this.mailsservice.markasRead(this.msgid);
   }
+  msganswer(){
+    console.log("message répondu")
+  }
+  msgfoward(){
+    console.log("msg transféré")
+  
+  }
+  msgdelete(){
+    console.log("msg supprimé")
+
+  }
 }

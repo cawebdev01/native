@@ -26,11 +26,6 @@ export class NewmailPage {
     }else{
       this.message.notice = ''
     }
-    //compo_multiupload Act_CBody_Add=1
-    //compo_save_feedback pour sauver comme brouillon
-    /*this.mailsservice.sendMail(this.message).then((result)=>{
-
-    })*/
     console.log(this.message)
     this.mailsservice.sendMail(this.message).then((result)=>{
       this.navCtrl.first()

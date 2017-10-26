@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, /*LoadingController, Loading,*/ ToastController, } from 'ionic-angular';
+import { NavController, NavParams, AlertController, LoadingController,  ToastController, } from 'ionic-angular';
 import { LoginService } from '../../providers/login-service/login-service';
 import { HomePage } from '../home/home';
 
@@ -8,21 +8,20 @@ import { HomePage } from '../home/home';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  loginData; 
+  loginData; loading;
   userData = {email:'', password: '', lang: 'en', NEWMOBILE: '1'};
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-   // private loadingCtrl : LoadingController,
-   // private loading : Loading,
+    private loadingCtrl : LoadingController,
     private toastCtrl : ToastController,
     private loginservice : LoginService,
     public alertCtrl : AlertController,
   ) { }
   public login(){
-    //this.showLoading();
+    this.showLoading();
     this.loginservice.login(this.userData).then((result)=>{
-     // this.loading.dismiss();
+      this.loading.dismiss();
       this.loginData = result;
       if(this.loginData.status.err_code == 0){
         localStorage.setItem('sessionid', this.loginData.sessionid);
@@ -36,16 +35,18 @@ export class LoginPage {
         this.showError("Acces Denied")
       }
     }, (err) => {
-     // this.loading.dismiss();
+      this.loading.dismiss();
       this.presentToast(err);
     })
   }
   showLoading(){
-   /* this.loading = this.loadingCtrl.create({
-      content: 'Please wait...',
-      dismissOnPageChange: true
-    });*/
-   // this.loading.present();
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    this.loading.present();
+    setTimeout(()=> {
+      this.loading.dismiss()
+    }, 5000)
   }
   presentToast(msg){
     let toast =this.toastCtrl.create({
@@ -60,7 +61,7 @@ export class LoginPage {
     toast.present()
   }
   showError(text){
-    //this.loading.dismiss()
+    this.loading.dismiss()
   }
 
 

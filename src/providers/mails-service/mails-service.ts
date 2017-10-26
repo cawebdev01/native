@@ -22,8 +22,8 @@ export class MailsServiceProvider {
   }
   sendMail(credendials){
     return new Promise((resolve, reject) =>{
-      /*let header = new Headers()
-      header.append('Content-Type', 'application/json')*/
+      let header = new Headers()
+      header.append('Content-Type', 'application/json')
       this.http.post(
         this.url+'/cgi-bin/ajaxmail?CheckContainerAlert=&CONTID=&CompoReplyTo='+credendials.from
         +'&CompoState=1&AutoMsgID=&msgID=&msgStatus=&multiForward=&R_Folder=&HtmlText='+credendials.content
@@ -35,8 +35,18 @@ export class MailsServiceProvider {
         +'&AliasBcc='+credendials.bcc
         +'&Subject='+credendials.subject
         +'&Act_C_Send=1&ID='+this.sessionid+'&Cos=1', 
-        JSON.stringify(credendials)/*, {headers: header}*/
+        JSON.stringify(credendials), {headers: header}
       ).subscribe(res => { resolve(res.json())}, (err) => { reject(err)})
+    })
+  }
+  deleteMail(credentials){
+    return new Promise((resolve, reject)=>{
+      let header = new Headers()
+      header.append('Content-Type',  'application/json')
+      this.http.post(
+        this.url+'/cgi-bin/ajaxmail?Act_Msgs_Del=1&Tpl=mail_list&SpamFilter=&CONTID=&ID='+this.sessionid+'C_Folder='+credentials.folder+'&Msg_Nb=1&Msg_Sel_1=&Page=1',
+        JSON.stringify(credentials), {headers: header}
+      ).subscribe(res => {resolve(res.json())}, (err) =>{reject(err)})
     })
   }
 }
