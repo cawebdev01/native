@@ -10,27 +10,11 @@
       (ionCancel)="onCancel($event)">
     </ion-searchbar>
   </ion-row>
+  <ion-row>
+    <!--p>Page {{ pageinfo.page }} / {{ pageinfo.pageCount}} </p-->
+  </ion-row>
 </ion-header>
-
-<!--ion-menu [content]="content">
-  <ion-list #content>
-    <ion-item text-wrap *ngFor="let btn of impFolder">
-      <button ion-item  [navPush]="MailsSend">(click)="loadMails(btn.id)"
-        <h2>{{ btn.label }}</h2>
-        <p>id: {{ btn.id }}, contid: {{ btn.contid }}</p>
-      </button>
-      
-    </ion-item>
-  </ion-list>
-</ion-menu-->
 <ion-content>
-  <!--div id="topbuttons"-->
-    <!--button ion-button menuToggle icon-only>
-        <ion-icon name="menu"></ion-icon>
-    </button-->
-    <!--button ion-button icon-only><ion-icon name="skip-backward" (click)=""></ion-icon></button-->
-  <!--/div>
-  <br-->
   <ion-list>
     <div *ngIf="items">
       <ion-item text-wrap *ngFor="let mail of items">

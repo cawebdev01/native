@@ -10,14 +10,14 @@ import { NewmailPage } from '../newmail/newmail';
   templateUrl: 'mailsfolders.html',
 })
 export class MailsFolders {
-  title: string; public mails:[any]; pageinfo:{any}; impFolder:[any]; dataUnread:[any]; oid; folderid; refresh;
+  title: string; public mails:[any]; pageinfo:any; impFolder:[any]; dataUnread:[any]; oid; folderid; refresh; status; 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public mailsservice: MailsServiceProvider,
   ) {
-    this.title = "MailsFolder";
     this.folderid = navParams.get("folderid")
+    this.title = navParams.get("title") 
     this.loadMails(this.folderid)
     this.refresh = setInterval(() =>{
 			this.loadMails(this.folderid)
@@ -31,8 +31,12 @@ export class MailsFolders {
       this.pageinfo = mails.pageInfo;
       this.impFolder = mails.importantFolders;
       this.dataUnread = mails.dataUnread;
-      
+      this.status = mails.status
     });
+  
+  }
+  reload(){
+    this.loadMails(this.folderid)
   }
   items; texts
   setItemsSearch(){

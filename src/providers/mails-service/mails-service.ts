@@ -10,6 +10,9 @@ export class MailsServiceProvider {
     this.sessionid = localStorage.getItem('sessionid')
     this.url = localStorage.getItem('url')
   }
+  getFolder(){
+    return this.http.get(this.url+'/cgi-bin/ajaxmail?Act_Folders=1&Tpl=fld_mgt&ID='+this.sessionid).map((res:Response)=>res.json())
+  }
   getMails(folderid){
     return this.http.get(this.url+'/cgi-bin/ajaxmail?Act_Msgs=1&Tpl=mail_list&ID='+this.sessionid+'&C_Folder='+folderid).map((res:Response)=> res.json())
   }

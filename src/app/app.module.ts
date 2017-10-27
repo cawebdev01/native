@@ -14,6 +14,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { MailsFolders } from '../pages/mails/mailsfolders/mailsfolders';
+import { MailsfolderlistPage } from '../pages/mails/mailsfolderlist/mailsfolderlist';
 import { MailsinglePage } from '../pages/mails/mailsingle/mailsingle'; 
 import { NewmailPage } from '../pages/mails/newmail/newmail';
 import { NeweventPage } from '../pages/calendars/newevent/newevent';
@@ -50,6 +51,7 @@ import { NewtaskPage } from '../pages/tasks/newtask/newtask'
     HomePage,
     LoginPage,
     MailsFolders,
+    MailsfolderlistPage,
     MailsinglePage,
     ModaltaskPage,
     NewmailPage,
@@ -82,6 +84,7 @@ import { NewtaskPage } from '../pages/tasks/newtask/newtask'
     HomePage,
     LoginPage,
     MailsFolders,
+    MailsfolderlistPage,
     MailsinglePage,
     ModaltaskPage,
     NewmailPage,

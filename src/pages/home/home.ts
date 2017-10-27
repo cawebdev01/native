@@ -9,6 +9,7 @@ import { HomeServiceProvider } from '../../providers/home-service/home-service';
 import { LoginService } from '../../providers/login-service/login-service';
 
 import { MailsFolders } from '../mails/mailsfolders/mailsfolders';
+import { MailsfolderlistPage } from '../mails/mailsfolderlist/mailsfolderlist' 
 import { AbooksFolders} from '../abooks/abooksfolders/abooksfolders';
 import { CalendarsFolders } from '../calendars/calendarsfolders/calendarsFolders';
 import { StorageFolders } from '../storage/storagefolders/storagefolders';
@@ -93,7 +94,7 @@ export class HomePage {
 		})
 	}
 	mails(){ 
-		this.navCtrl.push(MailsFolders, {"folderid": "SU5CT1g="})
+		this.navCtrl.push(MailsfolderlistPage)
 	}
 	newmail(){
 		this.navCtrl.push(NewmailPage)
