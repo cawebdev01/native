@@ -5,15 +5,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+//import { TabsPage } from '../pages/tabs/tabs';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any 
+  rootPage:any /*= TabsPage*/;
   sessionid: string = localStorage.getItem('sessionid');
  
-  
-
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     this.testsession();
     platform.ready().then(() => {

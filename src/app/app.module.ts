@@ -28,6 +28,7 @@ import { NotesFolders } from '../pages/notes/notesfolders/notesfolders';
 import { TasksFolders } from '../pages/tasks/tasksfolders/tasksfolders';
 import { TasksdetailsPage } from '../pages/tasks/tasksdetails/tasksdetails';
 import { ModaltaskPage } from '../pages/tasks/modaltask/modaltask';
+import { ModalupdatetaskgroupPage } from '../pages/tasks/modaltask/modaltaskupdate'
 import { AbookslistPage } from '../pages/abooks/abookslist/abookslist';
 import { NoteslistPage } from '../pages/notes/noteslist/noteslist';
 import { NotedetailsPage } from '../pages/notes/notedetails/notedetails';
@@ -44,6 +45,7 @@ import { TasklistPage } from '../pages/tasks/tasklist/tasklist';
 import { AbookcontactPage } from '../pages/abooks/abookcontact/abookcontact'
 import { NewnotePage } from '../pages/notes/newnote/newnote'
 import { NewtaskPage } from '../pages/tasks/newtask/newtask'
+//import { TabsPage } from '../pages/tabs/tabs'
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { NewtaskPage } from '../pages/tasks/newtask/newtask'
     MailsfolderlistPage,
     MailsinglePage,
     ModaltaskPage,
+    ModalupdatetaskgroupPage,
     NewmailPage,
     AbooksFolders,
     AbookcontactPage,
@@ -72,6 +75,7 @@ import { NewtaskPage } from '../pages/tasks/newtask/newtask'
     TasksFolders,
     TasklistPage,
     TasksdetailsPage,
+   //TabsPage,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +91,7 @@ import { NewtaskPage } from '../pages/tasks/newtask/newtask'
     MailsfolderlistPage,
     MailsinglePage,
     ModaltaskPage,
+    ModalupdatetaskgroupPage,
     NewmailPage,
     NewnotePage,
     NewtaskPage,
@@ -105,6 +110,7 @@ import { NewtaskPage } from '../pages/tasks/newtask/newtask'
     TasksFolders,
     TasklistPage,
     TasksdetailsPage,
+    //TabsPage,
   ],
   providers: [
     StatusBar,

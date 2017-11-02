@@ -16,9 +16,22 @@
 <ion-content padding>
   <ion-list>
    <ion-item text-wrap *ngFor="let t of data">
-    <p (click)="gettasks(t.objectId)">
-      {{ t.label }} 
-    </p>
+     <ion-row>
+      <ion-col col-8>
+      <p (click)="gettasks(t.objectId)">
+        {{ t.label }} 
+      </p> </ion-col> 
+      <ion-col col-2>
+        <button ion-button (click)="edittaskfolder()">
+          <ion-icon name="md-create"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button (click)="trashtaskfolder(t.objectId)">
+          <ion-icon name="ios-trash-outline"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
    </ion-item>
   </ion-list>
 </ion-content>
