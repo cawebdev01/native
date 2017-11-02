@@ -11,6 +11,8 @@ import { FileOpener } from '@ionic-native/file-opener';
 
 import { MyApp } from './app.component';
 
+import { AboutPage } from '../pages/about/about';
+import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { MailsFolders } from '../pages/mails/mailsfolders/mailsfolders';
@@ -45,11 +47,13 @@ import { TasklistPage } from '../pages/tasks/tasklist/tasklist';
 import { AbookcontactPage } from '../pages/abooks/abookcontact/abookcontact'
 import { NewnotePage } from '../pages/notes/newnote/newnote'
 import { NewtaskPage } from '../pages/tasks/newtask/newtask'
-//import { TabsPage } from '../pages/tabs/tabs'
+import { TabsPage } from '../pages/tabs/tabs'
 
 @NgModule({
   declarations: [
     MyApp,
+    AboutPage,
+    ContactPage,
     HomePage,
     LoginPage,
     MailsFolders,
@@ -75,7 +79,7 @@ import { NewtaskPage } from '../pages/tasks/newtask/newtask'
     TasksFolders,
     TasklistPage,
     TasksdetailsPage,
-   //TabsPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -85,6 +89,8 @@ import { NewtaskPage } from '../pages/tasks/newtask/newtask'
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    AboutPage,
+    ContactPage,
     HomePage,
     LoginPage,
     MailsFolders,
@@ -110,7 +116,7 @@ import { NewtaskPage } from '../pages/tasks/newtask/newtask'
     TasksFolders,
     TasklistPage,
     TasksdetailsPage,
-    //TabsPage,
+    TabsPage
   ],
   providers: [
     StatusBar,
