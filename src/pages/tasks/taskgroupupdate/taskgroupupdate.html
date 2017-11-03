@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">Close</button>
+    </ion-buttons>
+    <ion-title>Update the file name</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <h2>Name </h2>
+  <ion-input type="text"  [(ngModel)]="taskfolder.name" required></ion-input>
+  <br>
+  <button ion-button full (click)="update()">Save</button> 
+</ion-content>

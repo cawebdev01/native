@@ -4,7 +4,8 @@ import { TasksServiceProvider } from '../../../providers/tasks-service/tasks-ser
 import { TasklistPage } from '../tasklist/tasklist';
 
 import { ModaltaskPage } from '../modaltask/modaltask'
-import { ModalupdatetaskgroupPage } from '../modaltask/modaltaskupdate'
+//import { ModalupdatetaskgroupPage } from '../modaltask/modaltaskupdate'
+import { TaskgroupupdatePage } from '../taskgroupupdate/taskgroupupdate'
 @Component({
   selector: 'page-tasksfolders',
   templateUrl: 'tasksfolders.html',
@@ -32,12 +33,13 @@ export class TasksFolders {
     let myModal = this.modalCtrl.create(ModaltaskPage);
     myModal.present();
   }
-  edittaskfolder(tid){
-    let myModal = this.modalCtrl.create(ModalupdatetaskgroupPage);
+  edittaskfolder(tid, folder){
+    let myModal = this.modalCtrl.create(TaskgroupupdatePage, {"tid":tid, "folder":folder})
     myModal.present()
     //this.taskservice.updateGroup(tid)
   }
   trashtaskfolder(tid){
     this.taskservice.deleteGroup(tid)
   }
+  
 }

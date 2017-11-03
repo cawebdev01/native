@@ -16,11 +16,25 @@
 <ion-content padding>
   <ion-list>
     <ion-item text-wrap *ngFor="let t of data">
-    <p (click)="openTask(t.objectId)">
-      {{ t.label }} <br>
-      {{ t.eDate }} <br>
-      {{ t.status }}
-    </p>
+    <ion-row>
+      <ion-col col-8>
+        <p (click)="openTask(t.objectId)">
+          {{ t.label }} <br>
+          {{ t.eDate }} <br>
+          {{ t.status }}
+        </p>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button> <!--(click)="edittaskfolder()"-->
+          <ion-icon name="md-create"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button (click)="deleteTask(t.objectId)">
+          <ion-icon name="ios-trash-outline"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
     </ion-item>
   </ion-list>
 </ion-content>

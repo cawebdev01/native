@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>{{ title }}</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding>
+      <ion-list inset>
+        <ion-item>
+          <ion-label>Title</ion-label>
+          <ion-input type="text" [(ngModel)]="taskData.name" name="title" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Start Date</ion-label>
+          <ion-input [(ngModel)]="taskData.sdate" type="date"  name="StartDate" required></ion-input>
+        </ion-item>
+        <ion-item> 
+          <ion-label>Due Date</ion-label>
+          <ion-input [(ngModel)]="taskData.edate" type="date" name="Due Date"  required></ion-input>
+        </ion-item>
+        <ion-item> 
+          <ion-label>Priority</ion-label>
+          <ion-select [(ngModel)]="taskData.priority">
+            <ion-option *ngFor="let p of priorityList" [value]="p.value">{{ p.str }}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Status</ion-label>
+          <ion-select [(ngModel)]="taskData.status" >
+            <ion-option *ngFor="let s of statusList" [value]="s.value">{{ s.str }}</ion-option>
+          </ion-select>>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ taskData.percent }} % Complete</ion-label>
+          <ion-range [(ngModel)]="taskData.percent" min="0" max="100" pin="true" required></ion-range> 
+        </ion-item>
+        <ion-item>
+          <ion-label>Note</ion-label>
+          <ion-textarea rows="4" [(ngModel)]="taskData.comment" name="note"  required></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label>Tasklist</ion-label>
+          <ion-select [(ngModel)]="taskData.tlid">
+            <ion-option *ngFor="let l of data" [value]="l.objectId">{{ l.label }}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <button ion-button class="submit-btn" full type="submit" (click)="updatetask()">Save</button>
+  
+  </ion-content>
+  

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { FileOpener } from '@ionic-native/file-opener';
+//import { FileOpener } from '@ionic-native/file-opener';
 
 @Component({
   selector: 'page-storagedetail',
@@ -11,7 +11,7 @@ export class StoragedetailPage {
   constructor(
     public navCtrl: NavController,
      public navParams: NavParams,
-    private fileOpener : FileOpener,
+    //private fileOpener : FileOpener,
   ) {
     this.path = navParams.get("path");
     this.type = navParams.get("type");

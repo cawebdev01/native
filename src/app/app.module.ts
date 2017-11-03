@@ -11,8 +11,9 @@ import { FileOpener } from '@ionic-native/file-opener';
 
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
+import { TaskupdatePage } from '../pages/tasks/taskupdate/taskupdate'
+import { TaskgroupupdatePage } from '../pages/tasks/taskgroupupdate/taskgroupupdate'
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { MailsFolders } from '../pages/mails/mailsfolders/mailsfolders';
@@ -52,7 +53,6 @@ import { TabsPage } from '../pages/tabs/tabs'
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
     ContactPage,
     HomePage,
     LoginPage,
@@ -79,7 +79,9 @@ import { TabsPage } from '../pages/tabs/tabs'
     TasksFolders,
     TasklistPage,
     TasksdetailsPage,
-    TabsPage
+    TabsPage,
+    TaskupdatePage ,
+    TaskgroupupdatePage,
   ],
   imports: [
     BrowserModule,
@@ -89,7 +91,6 @@ import { TabsPage } from '../pages/tabs/tabs'
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
     ContactPage,
     HomePage,
     LoginPage,
@@ -116,7 +117,9 @@ import { TabsPage } from '../pages/tabs/tabs'
     TasksFolders,
     TasklistPage,
     TasksdetailsPage,
-    TabsPage
+    TabsPage,
+    TaskupdatePage ,
+    TaskgroupupdatePage,
   ],
   providers: [
     StatusBar,
