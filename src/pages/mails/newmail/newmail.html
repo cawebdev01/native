@@ -30,11 +30,11 @@
     </ion-item-->
     <ion-item>
       <ion-label> High</ion-label>
-      <ion-checkbox [(ngModel)]="message.high" checked="false"></ion-checkbox> 
+      <ion-toggle [(ngModel)]="message.high" checked="false"></ion-toggle> 
     </ion-item>
     <ion-item>
       <ion-label>Notice </ion-label>
-      <ion-checkbox [(ngModel)]="message.notice" checked="false"></ion-checkbox>
+      <ion-toggle [(ngModel)]="message.notice" checked="false"></ion-toggle>
     </ion-item>
     <!--button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Send</button-->
       <button ion-button class="submit-btn" full type="submit" (click)="send()">Send</button>

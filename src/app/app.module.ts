@@ -8,6 +8,7 @@ import { Calendar } from '@ionic-native/calendar';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { FileOpener } from '@ionic-native/file-opener';
+import { Toast } from '@ionic-native/toast'
 
 import { MyApp } from './app.component';
 
@@ -128,6 +129,7 @@ import { TabsPage } from '../pages/tabs/tabs'
     LoadingController,
     BackgroundMode,
     FileOpener,
+    Toast,
     LocalNotifications,
     Badge,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

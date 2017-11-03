@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams , ModalController} from 'ionic-angular';
+import { Refresher } from 'ionic-angular/components/refresher/refresher'
 import { TasksServiceProvider } from '../../../providers/tasks-service/tasks-service'
 import { TasklistPage } from '../tasklist/tasklist';
 
@@ -40,6 +41,18 @@ export class TasksFolders {
   }
   trashtaskfolder(tid){
     this.taskservice.deleteGroup(tid)
+    //this.doRefresh
+
+  }
+  doRefresh(refresher: Refresher){
+    //let refresher: Refresher
+    this.taskservice.getTasksList().subscribe(tasks=>{
+      this.data = tasks.data
+      refresher.complete()
+    })
+  }
+  doPulling(refresher:Refresher){
+    console.log('Pulling', refresher.progress)
   }
   
 }
