@@ -32,7 +32,7 @@ export class NotesServiceProvider {
       let header = new Headers()
       header.append('Content-Type', 'application/json')
       this.http.post(
-        this.url+'/cgi-bin/ajaxnotes?ACT_NOTELIST_SET=1&tpl=notelist_edit&NAME='+nlname+'&NLUID='+nluid+'&COMMENT=&ATOMICREQ=1&ID=', JSON.stringify(nlname, nluid), {headers: header})
+        this.url+'/cgi-bin/ajaxnotes?ACT_NOTELIST_SET=1&tpl=notelist_edit&NAME='+nlname+'&NLUID='+nluid+'&COMMENT=&ATOMICREQ=1&ID='+this.sessionid, JSON.stringify(nlname, nluid), {headers: header})
       .subscribe(res=> {resolve(res.json())}, (err)=>{reject(err)})
     })
   }
@@ -41,7 +41,7 @@ export class NotesServiceProvider {
       let header = new Headers()
       header.append('Content-Type', 'application/json')
       this.http.post(
-        this.url+'/cgi-bin/ajaxnotes?ACT_NOTELIST_DEL=1&tpl=notelist_delete&NLUID='+nluid+'&ATOMICREQ=1&ID=', JSON.stringify(nluid), {headers: header})
+        this.url+'/cgi-bin/ajaxnotes?ACT_NOTELIST_DEL=1&tpl=notelist_delete&NLUID='+nluid+'&ATOMICREQ=1&ID='+this.sessionid, JSON.stringify(nluid), {headers: header})
       .subscribe(res=> {resolve(res.json())}, (err)=>{reject(err)})
     })
   } 
@@ -50,7 +50,7 @@ export class NotesServiceProvider {
     let header = new Headers()
     header.append('Content-Type', 'application/json')
     this.http.post(
-      this.url+'/cgi-bin/ajaxnotes?ACT_NOTE_SET=1&tpl=notelist_content&NLUID='+credentials.nluid+'&NUID=&NAME='+credentials.name+'&CONTENT='+credentials.content+'&GOPAGE=1&FormatHTML=1&ID='+this.sessionid, JSON.stringify(credentials), {headers: header})
+      this.url+'/cgi-bin/ajaxnotes?ACT_NOTE_SET=1&tpl=notelist_content&NLUID='+credentials.noteliste+'&NUID=&NAME='+credentials.title+'&CONTENT='+credentials.content+'&GOPAGE=1&FormatHTML=1&ID='+this.sessionid, JSON.stringify(credentials), {headers: header})
     .subscribe(res=> {resolve(res.json())}, (err)=>{reject(err)})
     })
   }
@@ -68,7 +68,7 @@ export class NotesServiceProvider {
       let header = new Headers()
       header.append('Content-Type', 'application/json')
       this.http.post(
-        this.url+'/cgi-bin/ajaxnotes?ACT_NOTE_DEL=1&NLUID='+nluid+'&NUID='+nuid+'&tpl=notelist_content&GOPAGE=1&ID=', JSON.stringify(nluid, nuid), {headers: header})
+        this.url+'/cgi-bin/ajaxnotes?ACT_NOTE_DEL=1&NLUID='+nluid+'&NUID='+nuid+'&tpl=notelist_content&GOPAGE=1&ID='+this.sessionid, JSON.stringify(nluid, nuid), {headers: header})
       .subscribe(res=> {resolve(res.json())}, (err)=>{reject(err)})
     })
   }

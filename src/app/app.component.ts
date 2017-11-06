@@ -24,7 +24,7 @@ export class MyApp {
     });
   }
   testsession(session){
-     if(session != null || session != undefined ){this.rootPage = TabsPage}
+     if(session != null || session != undefined ){this.rootPage = HomePage}
      else{ this.rootPage = LoginPage }
   }
 }

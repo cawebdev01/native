@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { NotesServiceProvider } from '../../../providers/notes-service/notes-service';
 import { NotedetailsPage } from '../notedetails/notedetails';
+//import { NoteupdatePage } from '../noteupdate/noteupdate'
 
 @Component({
   selector: 'page-noteslist',
   templateUrl: 'noteslist.html',
 })
 export class NoteslistPage {
-notes ; 
+notes ; title
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private noteservice: NotesServiceProvider,
   ) {
     this.notes = navParams.get("nid")
+    this.title = navParams.get("label")
     this.loadNotes()
   }
   page; data; 
@@ -25,7 +27,12 @@ notes ;
     })
   }
   notedetail(noteid){
-  this.navCtrl.push(NotedetailsPage , {"noteid": noteid, "notegroup": this.notes})
+    this.navCtrl.push(NotedetailsPage , {"noteid": noteid, "notegroup": this.notes})
   }
+  editnote(noteid){
 
+  }
+  trashnote(noteid){
+    this.noteservice.deleteNote(this.notes, noteid)
+  }
 }

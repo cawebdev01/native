@@ -21,6 +21,11 @@ export class NewnotePage {
     })
   }
   createnote(){
-      console.log(this.noteData)
+    console.log(this.noteData)
+    this.noteservice.createNote(this.noteData).then((result)=>{
+      this.navCtrl.getPrevious()
+    }, (err)=>{
+      console.log("erreur " + err)
+    })
   }
 }

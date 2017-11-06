@@ -49,7 +49,7 @@ import { TasklistPage } from '../pages/tasks/tasklist/tasklist';
 import { AbookcontactPage } from '../pages/abooks/abookcontact/abookcontact'
 import { NewnotePage } from '../pages/notes/newnote/newnote'
 import { NewtaskPage } from '../pages/tasks/newtask/newtask'
-import { TabsPage } from '../pages/tabs/tabs'
+//import { TabsPage } from '../pages/tabs/tabs'
 import { NotefoldermodalePage } from '../pages/notes/notefoldermodale/notefoldermodale'
 import { NotefolderupdatePage } from '../pages/notes/notefolderupdate/notefolderupdate'
 
@@ -84,7 +84,7 @@ import { NotefolderupdatePage } from '../pages/notes/notefolderupdate/notefolder
     TasksFolders,
     TasklistPage,
     TasksdetailsPage,
-    TabsPage,
+    //TabsPage,
     TaskupdatePage ,
     TaskgroupupdatePage,
   ],
@@ -124,7 +124,7 @@ import { NotefolderupdatePage } from '../pages/notes/notefolderupdate/notefolder
     TasksFolders,
     TasklistPage,
     TasksdetailsPage,
-    TabsPage,
+    //TabsPage,
     TaskupdatePage ,
     TaskgroupupdatePage,
   ],

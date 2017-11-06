@@ -1,6 +1,11 @@
 <ion-header>
   <ion-navbar>
     <ion-title>tasksfolders</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="newfolder()">
+          <ion-icon name="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -33,8 +38,8 @@
    </ion-item>
   </ion-list>
 </ion-content>
-<ion-footer>
+<!--ion-footer>
   <ion-buttons end>
     <button ion-button (click)="newfolder()">Creer un taskgroup</button>  
   </ion-buttons> 
-</ion-footer>
+</ion-footer-->

@@ -9,28 +9,32 @@ import { NotesServiceProvider } from '../../../providers/notes-service/notes-ser
 })
 export class NotefolderupdatePage {
   @ViewChild(Content) content: Content;
-  //notefolder = {name:'', nluid:''}
+  notefolder = {name:'', nluid:''}
+  name; nluid;
   constructor(
     public navCtrl: NavController, 
+    public navParams: NavParams,
     public viewCtrl : ViewController,
     private notesService : NotesServiceProvider,
     private toastCtrl: ToastController,
   ) {
+    this.notefolder.nluid = navParams.get('nid')
+    this.notefolder.name = navParams.get('folder')
   }
   dismiss(){
     this.viewCtrl.dismiss()
   }
   updatefolder(){
-    /*this.notesService.updateNotelist(this.notefolder.name, this.notefolder.nluid).then((result)=>{
+    this.notesService.updateNotelist(this.notefolder.name, this.notefolder.nluid).then((result)=>{
       this.dismiss()
-      this.presentToast()
+      this.presentToast("modifié")
     }, (err)=>{
       console.log("erreur "+err)
-    })*/
+    })
   }
-  presentToast(){
+  presentToast(msg){
     let Toast = this.toastCtrl.create({
-      message: 'Dossier créé',
+      message: 'Dossier '+msg,
       duration: 6000,
       position: 'center'
     })

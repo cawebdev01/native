@@ -27,15 +27,18 @@ export class NotesFolders {
       this.itemslists = notes.itemslists;
     })
   }
-  loadNotes(nid){
-    this.navCtrl.push(NoteslistPage, {"nid": nid})
+  loadNotes(nid, label){
+    this.navCtrl.push(NoteslistPage, {"nid": nid, "label": label})
   }
   newfolder(){
     let Modal = this.modalCtrl.create(NotefoldermodalePage)
     Modal.present()
   }
-  editnotefolder(/*nid, fname*/){
-    let Modal = this.modalCtrl.create(NotefolderupdatePage)
+  editnotefolder(nid, fname){
+    let Modal = this.modalCtrl.create(NotefolderupdatePage, { "nid":nid, "folder": fname})
     Modal.present()
+  }
+  trashnotefolder(nid){
+    this.notesService.deleteNotelist(nid)
   }
 }

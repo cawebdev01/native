@@ -21,6 +21,7 @@ export class StorageFolders {
       this.total = files.total 
       this.sysfolders = files.folders.systemFolders;
       this.persofolder = files.folders.personalFolders;
+      this.persofolder.shift()
       this.data = files.data;
     })
   }

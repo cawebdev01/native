@@ -19,7 +19,7 @@
    <ion-item *ngFor="let du of data" text-center>
      <p (click)="mails(du.id, du.label)" (press)="test()">{{ du.label }} ({{ du.unread }})</p>
       <!--p *ngIf="du.actionsDisabled[0] != 'NONE'"><br><button ion-button full *ngFor="let v of du.actionsDisabled" (tap)="action(v)"> {{ v }} </button> <br> </p-->
-    
+    <p *ngIf="du.actionsDisabled[0]!= 'MOVE' && du.actionsDisabled[0] != 'ADDCHILD'"> {{ du.actionsDisabled }}</p>
    </ion-item>
  </ion-list>
  <ion-list *ngIf="statuserrcode != 0">

@@ -9,7 +9,8 @@
 
 <ion-content padding>
   <ion-list>
-  <ion-item text-wrap *ngFor="let pf of persofolder"   >
+  <ion-item text-wrap *ngFor="let pf of persofolder" >
+    <!--{{ persofolder | json }} -->
       <p (click)="getdetails(pf.objectId)">{{ pf.label | uppercase }} </p>
     </ion-item>
   </ion-list>

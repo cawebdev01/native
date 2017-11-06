@@ -2,7 +2,12 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>noteslist</ion-title>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons start>
+        <button ion-button >
+            <ion-icon name="md-add"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -11,8 +16,21 @@
 <ion-content padding>
   <ion-list>
     <ion-item text-wrap *ngFor="let n of data">
-      <p (click)="notedetail(n.objectId)">
-      {{ n.title }}</p>
+      <ion-row>
+        <p (click)="notedetail(n.objectId)" col-8>
+          {{ n.title }}
+        </p>
+        <ion-col col-2>
+          <button ion-button (click)="editnote(n.objectId)">
+            <ion-icon name="md-create"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button (click)="trashnote(n.objectId)">
+            <ion-icon name="ios-trash-outline"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
     </ion-item>
   </ion-list>
 </ion-content>

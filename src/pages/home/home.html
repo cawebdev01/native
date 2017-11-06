@@ -1,6 +1,11 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Aruba / Xandmail</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="logout(sessionid)">
+      <ion-icon name="log-out"></ion-icon>
+    </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -17,9 +22,9 @@
   <button ion-button class="storage-btn" full (click)="storages()">Storages</button><br>
   <button ion-button class="notes-btn" full (click)="notes()">Notes</button><br>
   <button ion-button class="tasks-btn" full (click)="tasks()">Tasks</button><br>    
- <ion-fab top right #fab1>
+ <ion-fab bottom left #fab1>
     <button ion-fab><ion-icon name="add"></ion-icon></button>
-    <ion-fab-list side="down">
+    <ion-fab-list side="right">
       <button ion-fab (click)="newmail()"><ion-icon name="mail"></ion-icon></button>
       <button ion-fab (click)="newevent()"><ion-icon name="calendar"></ion-icon></button>
       <button ion-fab (click)="newnote()"><ion-icon name="clipboard"></ion-icon></button>
@@ -27,13 +32,11 @@
     </ion-fab-list>
   </ion-fab>
 </ion-content>
-<ion-footer>
+<!--ion-footer>
  
   <ion-buttons end>
-    <button ion-button (click)="logout(sessionid)">
-      <ion-icon name="log-out"></ion-icon>
-    </button>
+    
   </ion-buttons>
   
 
-</ion-footer>
+</ion-footer-->
