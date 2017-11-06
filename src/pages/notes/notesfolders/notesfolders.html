@@ -18,12 +18,24 @@
 <!--hr-->
 <ion-list>
   <ion-item text-wrap *ngFor="let n of itemslists">
-    <p (click)="loadNotes(n.objectId)">{{ n.label }} / {{ n.objectId }}</p>
+    <ion-row>
+      <p (click)="loadNotes(n.objectId)" col-8>{{ n.label }} / {{ n.objectId }}</p>
+      <ion-col col-2 *ngIf="n.objectId > 1">
+          <button ion-button (click)="editnotefolder()">
+              <ion-icon name="md-create"></ion-icon>
+            </button>
+      </ion-col>
+      <ion-col col-2 *ngIf="n.objectId > 1">
+          <button ion-button (click)="trashnotefolder(n.objectId)">
+              <ion-icon name="ios-trash-outline"></ion-icon>
+            </button>
+      </ion-col>
+    </ion-row>
   </ion-item>
 </ion-list>
 </ion-content>
 <ion-footer>
   <ion-buttons end>
-    <button ion-button>Creer une nouvelle note</button>  
+    <button ion-button (click)="newfolder()">Creer une nouveau dossier</button>  
   </ion-buttons> 
 </ion-footer>

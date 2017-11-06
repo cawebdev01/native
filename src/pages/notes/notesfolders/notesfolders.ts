@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
+
 import { NotesServiceProvider } from '../../../providers/notes-service/notes-service';
 import { NoteslistPage } from '../noteslist/noteslist';
+import { NotefoldermodalePage } from '../notefoldermodale/notefoldermodale'
+import { NotefolderupdatePage } from '../notefolderupdate/notefolderupdate'
 
 @Component({
   selector: 'page-notesfolders',
@@ -13,6 +16,7 @@ export class NotesFolders {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private notesService: NotesServiceProvider,
+    public modalCtrl: ModalController,  
   ) {
     this.loadNotesFolders()
   }
@@ -26,5 +30,12 @@ export class NotesFolders {
   loadNotes(nid){
     this.navCtrl.push(NoteslistPage, {"nid": nid})
   }
-
+  newfolder(){
+    let Modal = this.modalCtrl.create(NotefoldermodalePage)
+    Modal.present()
+  }
+  editnotefolder(/*nid, fname*/){
+    let Modal = this.modalCtrl.create(NotefolderupdatePage)
+    Modal.present()
+  }
 }

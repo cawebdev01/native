@@ -50,6 +50,8 @@ import { AbookcontactPage } from '../pages/abooks/abookcontact/abookcontact'
 import { NewnotePage } from '../pages/notes/newnote/newnote'
 import { NewtaskPage } from '../pages/tasks/newtask/newtask'
 import { TabsPage } from '../pages/tabs/tabs'
+import { NotefoldermodalePage } from '../pages/notes/notefoldermodale/notefoldermodale'
+import { NotefolderupdatePage } from '../pages/notes/notefolderupdate/notefolderupdate'
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { TabsPage } from '../pages/tabs/tabs'
     CalendardetailPage,
     NeweventPage,
     NewnotePage,
+    NotefoldermodalePage,
+    NotefolderupdatePage,
     NewtaskPage,
     StorageFolders,
     StoragefilesPage,
@@ -103,6 +107,7 @@ import { TabsPage } from '../pages/tabs/tabs'
     NewmailPage,
     NewnotePage,
     NewtaskPage,
+    NotefoldermodalePage,
     AbooksFolders,
     AbookslistPage,
     AbookcontactPage,
@@ -115,6 +120,7 @@ import { TabsPage } from '../pages/tabs/tabs'
     NotesFolders,
     NoteslistPage,
     NotedetailsPage,
+    NotefolderupdatePage,
     TasksFolders,
     TasklistPage,
     TasksdetailsPage,

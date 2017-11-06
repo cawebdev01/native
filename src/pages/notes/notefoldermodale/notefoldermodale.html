@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>notefoldermmodale</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">Close</button>"
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-label>Name</ion-label>
+  <ion-input [(ngModel)]="notelist.name" type="text" name="notelist" required></ion-input>
+  <button ion-button full type="button" (click)="newdossier()">OK</button>
+</ion-content>
