@@ -1,6 +1,10 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ title }}</ion-title>
+    <ion-row>
+    <ion-title col-6>{{ title }}</ion-title>
+    <!--ion-buttons col-4>
+      <button ion-button col-6 text-right><ion-icon name="md-menu"></ion-icon></button-->
+    <!--/ion-buttons--></ion-row>
   </ion-navbar>
   <ion-row>
     <ion-searchbar
@@ -59,7 +63,10 @@
           </ion-row>
         </ion-item> 
       </div> 
-  </ion-list>  
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="nextpage($event)" *ngIf="nxp == true">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="More data &hellip;"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
 <ion-footer>
   <ion-buttons end>

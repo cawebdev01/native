@@ -10,7 +10,7 @@ import { NewmailPage } from '../newmail/newmail';
   templateUrl: 'mailsfolders.html',
 })
 export class MailsFolders {
-  title: string; public mails:[any]; pageinfo:any; impFolder:[any]; dataUnread:[any]; oid; folderid; refresh; status; 
+  title: string; nxp; public mails:[any]; pageinfo:any; impFolder:[any]; dataUnread:[any]; oid; length; folderid; refresh; status; 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -21,19 +21,45 @@ export class MailsFolders {
     this.loadMails(this.folderid)
     this.refresh = setInterval(() =>{
 			this.loadMails(this.folderid)
-    }, 60000); 
+    }, 360000); 
+    
   }
   public loadMails(folderid){
-    //console.log(folderid);
     this.mailsservice.getMails(folderid).subscribe(mails =>{
       this.mails = mails.data;
       this.oid = mails.data.objectId;
       this.pageinfo = mails.pageInfo;
+      this.nxp = mails.pageInfo.nextPage
       this.impFolder = mails.importantFolders;
       this.dataUnread = mails.dataUnread;
       this.status = mails.status
     });
-  
+    
+  }
+  nxpmails; data; 
+  nextpage(infiniteScroll){
+    this.pageinfo.page = this.pageinfo.page+1
+    //console.log(this.pageinfo.page)
+    setTimeout(() => {
+      this.mailsservice.getNextPage(this.folderid, this.pageinfo.page)
+      .subscribe(
+        mails => {
+          this.data = mails;
+          this.oid = mails.data.objectId;
+          this.pageinfo =  this.pageinfo = mails.pageInfo;
+          this.nxp = mails.pageInfo.nextPage
+          this.impFolder = mails.importantFolders;
+          this.dataUnread = mails.dataUnread;
+          this.status = mails.status;
+          this.length = mails.data.length;
+          for(let i=0; i<this.length; i++){
+            this.mails.push(this.data.data[i])
+          }
+        }
+      )
+      //console.log("async ended");
+      infiniteScroll.complete()
+    }, 1000)
   }
   reload(){
     this.loadMails(this.folderid)
@@ -54,7 +80,7 @@ export class MailsFolders {
         + item.text.toLowerCase().includes(val.toLowerCase()));
         
       })
-      console.log(this.items)
+      //console.log(this.items)
     }
   }
   public loadMail(objectId, folder){

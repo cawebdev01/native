@@ -18,7 +18,7 @@ export class MailsfolderlistPage {
   ) {
     this.loadFolder()
     //this.qteraw = (parseInt(this.accountSize)*100)/(parseInt(this.accountMaxSize))
-    console.log(this.qteraw);
+    //console.log(this.qteraw);
     //this.qte = Math.round(this.qteraw)
   }
  

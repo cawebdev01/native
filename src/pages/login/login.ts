@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController, LoadingController,  ToastController, } from 'ionic-angular';
 import { LoginService } from '../../providers/login-service/login-service';
 import { HomePage } from '../home/home';
-import { TabsPage } from '../tabs/tabs';
+//import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-login',
@@ -29,8 +29,7 @@ export class LoginPage {
         localStorage.setItem('url', this.loginData.url);
         localStorage.setItem('email', this.loginData.resources.mailAddress);
         localStorage.setItem('password', this.userData.password);
-        //this.navCtrl.setRoot( HomePage )
-        this.navCtrl.push(TabsPage)
+        this.navCtrl.setRoot( HomePage )
       } else if(this.loginData.status.err_code == 1000 ){
         this.showError(this.loginData.status.err_txt)
       } else {

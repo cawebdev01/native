@@ -16,6 +16,9 @@ export class MailsServiceProvider {
   getMails(folderid){
     return this.http.get(this.url+'/cgi-bin/ajaxmail?Act_Msgs=1&Tpl=mail_list&ID='+this.sessionid+'&C_Folder='+folderid).map((res:Response)=> res.json())
   }
+  getNextPage(cfolder, page){
+    return this.http.get(this.url+'/cgi-bin/ajaxmail?Act_Msgs_Page_Nth=1&Tpl=mail_list&ID='+this.sessionid+'&C_Folder='+cfolder+'&Page='+page).map((res:Response)=>res.json())
+  }
   getMail(msgid, cfolder){
     return this.http.get(this.url+'/cgi-bin/ajaxmail?Act_View=1&ShowFullHeaders=1&ID='+this.sessionid+'&CONTID=&msgID='+msgid+'&C_Folder='+cfolder).map((res:Response)=>res.json())
       //'/cgi-bin/ajamail?Act_View&ShowFullHeaders=1&ID='+this.sessionid+'&CONTID=&msgId='+msgid+'&C_Folder=SU5CT1g=&R_Folder=SU5CT1g=&Body=&TNEF=&nocache='
