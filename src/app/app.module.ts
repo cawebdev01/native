@@ -23,6 +23,7 @@ import { MailsinglePage } from '../pages/mails/mailsingle/mailsingle';
 import { NewmailPage } from '../pages/mails/newmail/newmail';
 import { NeweventPage } from '../pages/calendars/newevent/newevent';
 import { AbooksFolders} from '../pages/abooks/abooksfolders/abooksfolders';
+import { AbooksupdaterPage } from '../pages/abooks/abooksupdater/abooksupdater';
 import { CalendarsFolders } from '../pages/calendars/calendarsfolders/calendarsFolders';
 import { CalendardetailPage } from '../pages/calendars/calendardetail/calendardetail';
 import { StorageFolders } from '../pages/storage/storagefolders/storagefolders';
@@ -52,6 +53,7 @@ import { NewtaskPage } from '../pages/tasks/newtask/newtask'
 //import { TabsPage } from '../pages/tabs/tabs'
 import { NotefoldermodalePage } from '../pages/notes/notefoldermodale/notefoldermodale'
 import { NotefolderupdatePage } from '../pages/notes/notefolderupdate/notefolderupdate'
+import { AbookcreatorPage } from '../pages/abooks/abookcreator/abookcreator'
 
 @NgModule({
   declarations: [
@@ -68,6 +70,8 @@ import { NotefolderupdatePage } from '../pages/notes/notefolderupdate/notefolder
     AbooksFolders,
     AbookcontactPage,
     AbookslistPage,
+    AbooksupdaterPage,
+    AbookcreatorPage,
     CalendarsFolders,
     CalendardetailPage,
     NeweventPage,
@@ -110,7 +114,9 @@ import { NotefolderupdatePage } from '../pages/notes/notefolderupdate/notefolder
     NotefoldermodalePage,
     AbooksFolders,
     AbookslistPage,
+    AbooksupdaterPage,
     AbookcontactPage,
+    AbookcreatorPage,
     CalendarsFolders,
     CalendardetailPage,
     NeweventPage,

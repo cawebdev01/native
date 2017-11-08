@@ -1,25 +1,24 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import { AbooksService } from '../../../providers/abooks-service/abooks-service'
 import { AbookslistPage } from '../abookslist/abookslist'
-/**
- * Generated class for the AbooksfoldersPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AbooksupdaterPage } from '../abooksupdater/abooksupdater'
+import { AbookcreatorPage } from '../abookcreator/abookcreator'
 
 @Component({
   selector: 'page-abooksfolders',
   templateUrl: 'abooksfolders.html',
 })
+
 export class AbooksFolders {
   public sessionid
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    public modalCtrl: ModalController,
+    private alerteCtrl: AlertController,
     private abooksService: AbooksService,
-
+    
   ) {
     this.sessionid = localStorage.getItem('sessionid')
     this.loadAbooks()
@@ -37,5 +36,72 @@ export class AbooksFolders {
   contactslist(oid){
     this.navCtrl.push(AbookslistPage, {"oid": oid})
   }
-
+  credential = {name:'', oid:''}
+  editlistname(oid, oldname){
+    /*let myModal = this.modalCtrl.create(AbooksupdaterPage, {"oid": oid, "name": name})
+    myModal.present()*/
+    let alert = this.alerteCtrl.create({
+      title: 'Update',
+      message: 'Enter the new Abook name',
+      inputs: [
+        {
+          name:'newname',
+          placeholder: oldname,
+          type: 'text'
+        }
+      ],
+      buttons:[
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data =>{
+            //console.log('Cancel clicked')
+          }
+        },
+        {
+          text: 'OK',
+          handler: data =>{
+            this.credential = { name: data.newname, oid: oid}
+            console.log(this.credential)
+            this.abooksService.updateList(this.credential).then((result)=>{
+              this.loadAbooks()
+            }, (err)=>{
+              console.log("erreur "+ err)
+            })
+          }
+        }
+      ]
+    })
+    alert.present()
+  }
+  deleteabook(oid){
+    let alert = this.alerteCtrl.create({
+      title: 'Delete',
+      message: 'Are you sure you want to delete this abook and all contents ?',
+      buttons: [
+        {
+          text : 'Cancel', 
+          role: 'cancel',
+          handler: ()=> {
+            console.log('Cancel clicked')
+          }
+        }, {
+          text: 'Delete',
+          handler: () => {
+            console.log('Delete clicked')
+            this.abooksService.deleteList(oid).then((result)=>{
+              this.loadAbooks()
+            }, (err)=>{
+              console.log("erreur "+ err)
+            })
+          }
+        }
+      ] 
+    })
+    alert.present()
+  }
+  newfolder(){
+    let myModal = this.modalCtrl.create(AbookcreatorPage)
+    myModal.present()
+  }
 }

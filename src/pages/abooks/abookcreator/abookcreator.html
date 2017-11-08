@@ -1,0 +1,14 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">Close</button>
+        </ion-buttons>
+        <ion-title>New AdressBook</ion-title>
+    </ion-navbar>
+</ion-header>
+    
+<ion-content padding>
+    <ion-label>Name</ion-label>
+    <ion-input [(ngModel)]="abook.name" type="text" name="abookname" required></ion-input>
+    <button ion-button class="btn" full type="button" (click)="newfolder()">OK</button>
+</ion-content>
