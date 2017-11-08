@@ -1,6 +1,11 @@
 <ion-header>
   <ion-navbar>
     <ion-title>abooks</ion-title>
+    <ion-buttons start>
+        <button ion-button (click)="newfolder()">
+            <ion-icon name="md-add"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -20,8 +25,8 @@
   </ion-list>
 </ion-content>
 
-<ion-footer>
+<!--ion-footer>
   <ion-buttons end>
     <button ion-button (click)="newfolder()">Creer un carnet d'adresses</button>  
   </ion-buttons> 
-</ion-footer>
+</ion-footer-->

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { MailsServiceProvider } from '../../../providers/mails-service/mails-service'
 
 
@@ -14,12 +14,10 @@ export class MailsfolderlistPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    public alertCtrl: AlertController,
     private mailsserrvice: MailsServiceProvider,
   ) {
     this.loadFolder()
-    //this.qteraw = (parseInt(this.accountSize)*100)/(parseInt(this.accountMaxSize))
-    //console.log(this.qteraw);
-    //this.qte = Math.round(this.qteraw)
   }
  
   loadFolder(){
@@ -35,24 +33,55 @@ export class MailsfolderlistPage {
   mails(fid, title){ 
 		this.navCtrl.push(MailsFolders, {"folderid": fid, "title": title })
   }
-  test(){
-    alert("ca roule! "+ this.data.id)
+  folder = {name:'', parent:'', imp:''}
+  newfolder(){
+    let alert = this.alertCtrl.create({
+      title : 'Create a new mailfolder',
+      message: 'Enter the Mailfolder Name',
+      inputs : [{name: 'name', type: 'text'}],
+      buttons:[{text: 'Cancel', role: 'cancel', handler: data=>{}},
+      {text: 'ok', handler: data=>{
+        this.folder = { name: data.name, parent:'', imp:'0'}
+        this.mailsserrvice.createFolder(this.folder).then((result)=>{
+          this.loadFolder()
+        }, (err)=>{
+          console.log("erreur "+ err)
+        })
+      }}]
+    })
+    alert.present()
   }
-  action(espression){
-    if(espression=="MOVE"){
-      this.move_act()
-    } else if(espression == "REMOVE"){
-      console.log("On enleve")
-    }
-    else if (espression == "EDIT"){
-      console.log("On edite")
-    }
-    else if (espression=="ADDCHILD"){
-      console.log("On ajoute un enfant!")
-    }
-    //console.log(espression)
+  editfolder(name, oid){
+    let alert = this.alertCtrl.create({
+      title : 'Update the mailfolder name',
+      message: 'Enter the new Name',
+      inputs : [{name: 'name', type: 'text', placeholder: name}],
+      buttons:[{text: 'Cancel', role: 'cancel', handler: data=>{}},
+      {text: 'ok', handler: data=>{
+        this.folder = { name: data.name, parent:oid, imp:'0'}
+        this.mailsserrvice.updateFolder(this.folder).then((result)=>{
+          this.loadFolder()
+        }, (err)=>{
+          console.log("erreur "+ err)
+        })
+      }}]
+    })
+    alert.present()
   }
-  move_act(){
-    console.log("On deplace toto")
+  deletefolder(oid){
+    let alert = this.alertCtrl.create({
+      title : 'Delete mailfolder',
+      message: 'Are you sure you want to delete this mailfolder and all contents ?',
+      buttons:[{text: 'Cancel', role: 'cancel', handler: ()=>{}},
+      {text: 'delete', handler: ()=>{
+        this.folder = { name:'', parent:oid, imp:'0'}
+        this.mailsserrvice.deleteFolder(this.folder).then((result)=>{
+          this.loadFolder()
+        }, (err)=>{
+          console.log("erreur "+ err)
+        })
+      }}]
+    })
+    alert.present()
   }
 }

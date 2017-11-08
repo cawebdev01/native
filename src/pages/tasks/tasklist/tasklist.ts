@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { TasksServiceProvider } from '../../../providers/tasks-service/tasks-service'
 import { TasksdetailsPage } from '../tasksdetails/tasksdetails';
 
@@ -13,6 +13,7 @@ export class TasklistPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private tasksservice: TasksServiceProvider,
+    public alertCtrl: AlertController,
   ) {
     this.tid = navParams.get("tid");
     this.loadTasks()
@@ -27,10 +28,53 @@ data
     this.navCtrl.push(TasksdetailsPage, {"list": this.tid, "tid": taskid})
   }
   deleteTask(toid){
-    this.tasksservice.deletetask(this.tid, toid).then((result)=>{
-      console.log("task supprimé")
-    }, (err)=>{
-      console.log("erre lors de la suppression")
+    let alert = this.alertCtrl.create({
+      title: 'Delete Task',
+      message : ' Are you sure to want to delete this task?',
+      buttons: [
+        {
+          text : 'Cancel', 
+          role: 'cancel',
+          handler: ()=> {
+            console.log('Cancel clicked')
+          }
+        }, {
+          text: 'Delete',
+          handler: ()=>{
+            this.tasksservice.deletetask(this.tid, toid).then((result)=>{
+              this.loadTasks()
+            }, (err)=>{
+            })
+          }
+        }
+      ]
     })
+    alert.present()
+  }
+  editTask(toid){
+   /* let alert = this.alertCtrl.create({
+      title: 'Delete Task',
+      message : ' Are you sure to want to delete this task?',
+      buttons: [
+        {
+          text : 'Cancel', 
+          role: 'cancel',
+          handler: ()=> {
+            console.log('Cancel clicked')
+          }
+        }, {
+          text: 'Delete',
+          handler: ()=>{
+            this.tasksservice.updatetask()
+          
+            ).then((result)=>{
+              this.loadTasks()
+            }, (err)=>{
+            })
+          }
+        }
+      ]
+    })
+    alert.present()*/
   }
 }

@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import { AbooksService } from '../../../providers/abooks-service/abooks-service'
 import { AbookslistPage } from '../abookslist/abookslist'
-import { AbooksupdaterPage } from '../abooksupdater/abooksupdater'
-import { AbookcreatorPage } from '../abookcreator/abookcreator'
 
 @Component({
   selector: 'page-abooksfolders',
@@ -38,29 +36,12 @@ export class AbooksFolders {
   }
   credential = {name:'', oid:''}
   editlistname(oid, oldname){
-    /*let myModal = this.modalCtrl.create(AbooksupdaterPage, {"oid": oid, "name": name})
-    myModal.present()*/
     let alert = this.alerteCtrl.create({
       title: 'Update',
       message: 'Enter the new Abook name',
-      inputs: [
-        {
-          name:'newname',
-          placeholder: oldname,
-          type: 'text'
-        }
-      ],
-      buttons:[
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: data =>{
-            //console.log('Cancel clicked')
-          }
-        },
-        {
-          text: 'OK',
-          handler: data =>{
+      inputs: [{ name:'newname', placeholder: oldname, type: 'text'}],
+      buttons:[{ text: 'Cancel', role: 'cancel', handler: data =>{ }},
+        {text: 'OK', handler: data =>{
             this.credential = { name: data.newname, oid: oid}
             console.log(this.credential)
             this.abooksService.updateList(this.credential).then((result)=>{
@@ -101,7 +82,19 @@ export class AbooksFolders {
     alert.present()
   }
   newfolder(){
-    let myModal = this.modalCtrl.create(AbookcreatorPage)
-    myModal.present()
+    let alert =this.alerteCtrl.create({
+      title: 'Create Abook',
+      message: 'Enter the Abook name',
+      inputs:[{ name:'name', placeholder: 'Name', type: 'text' }],
+      buttons:[{ text: 'Cancel', role: 'cancel', handler: data=>{ }},
+    {text: 'OK', handler: data =>{
+      this.abooksService.createList(data.name).then((result)=>{
+        this.loadAbooks()
+      }, (err)=>{
+        console.log('error '+err)
+      })
+    }}]
+    })
+    alert.present()
   }
 }

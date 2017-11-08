@@ -21,8 +21,7 @@ export class MailsServiceProvider {
   }
   getMail(msgid, cfolder){
     return this.http.get(this.url+'/cgi-bin/ajaxmail?Act_View=1&ShowFullHeaders=1&ID='+this.sessionid+'&CONTID=&msgID='+msgid+'&C_Folder='+cfolder).map((res:Response)=>res.json())
-      //'/cgi-bin/ajamail?Act_View&ShowFullHeaders=1&ID='+this.sessionid+'&CONTID=&msgId='+msgid+'&C_Folder=SU5CT1g=&R_Folder=SU5CT1g=&Body=&TNEF=&nocache='
-  }
+       }
   markasRead(msgid){
     return this.http.get(this.url+'/cgi-bin/ajaxmail?Act_Msgs_MarkRead=1&Tpl=mail_list&SpamFilter=&CONTID=&ID='+this.sessionid+'&C_Folder=SU5CT1g=&Msg_Nb=1&Msg_Sel_1='+msgid+'&noreload=&nocache=').map((res:Response) => res.json());    
   }
@@ -53,6 +52,33 @@ export class MailsServiceProvider {
         this.url+'/cgi-bin/ajaxmail?Act_Msgs_Del=1&Tpl=mail_list&SpamFilter=&CONTID=&ID='+this.sessionid+'C_Folder='+credentials.folder+'&Msg_Nb=1&Msg_Sel_1=&Page=1',
         JSON.stringify(credentials), {headers: header}
       ).subscribe(res => {resolve(res.json())}, (err) =>{reject(err)})
+    })
+  }
+  createFolder(credentials){
+    return new Promise((resolve, reject)=>{
+      let header = new Headers()
+      header.append('Content-Type', 'application/json')
+      this.http.post(this.url+'/cgi-bin/ajaxmail?Act_Fl_Creat=1&Fld_Name='+credentials.name+'&CONTID=&Fld_Parent='+credentials.parent+'&Fld_Important='+credentials.imp+'&ID='+this.sessionid,
+      JSON.stringify(credentials), {headers: header}
+     ).subscribe(res => {resolve(res.json())}, (err)=>{ reject(err)})
+    })
+  }
+  updateFolder(credentials){
+    return new Promise((resolve, reject)=>{
+      let header = new Headers()
+      header.append('Content-Type', 'application/json')
+      this.http.post(this.url+'/cgi-bin/ajaxmail?Act_Fl_Ren=1&SHOWUPDATE=1&Fld_Name='+credentials.name+'&CONTID=&Fld_P_List='+credentials.parent+'&Fld_Important='+credentials.imp+'&ID='+this.sessionid,
+      JSON.stringify(credentials), {headers: header}
+     ).subscribe(res => {resolve(res.json())}, (err)=>{ reject(err)})
+    })
+  }
+  deleteFolder(credentials){
+    return new Promise((resolve, reject)=>{
+      let header = new Headers()
+      header.append('Content-Type', 'application/json')
+      this.http.post(this.url+'/cgi-bin/ajaxmail?Act_Fl_Del_Conf=1&SHOWUPDATE=1&ForceDelete=0&Fld_P_List='+credentials.parent+'&CONTID=&ID='+this.sessionid,
+      JSON.stringify(credentials), {headers: header}
+     ).subscribe(res => {resolve(res.json())}, (err)=>{ reject(err)})
     })
   }
 }
