@@ -31,12 +31,13 @@ export class StorageFolders {
     this.navCtrl.push(StoragefilesPage, {"folder": folder})
   }
   newfolder(){
+    let fav = 1
     let alert = this.alertCtrl.create({
       title: 'New folder',
       inputs:[{name: 'newfolder', placeholder: 'Name', type: 'text'}],
       buttons:[{ text: 'Cancel', role: 'cancel', handler: data =>{ }},
         {text: 'OK', handler: data => {
-          this.storageservice.createFolder(data.newfolder).then((result)=>{
+          this.storageservice.createFolder(data.newfolder, fav).then((result)=>{
             this.loadfolder()
           }, (err)=>{
             console.log("error " + err)
