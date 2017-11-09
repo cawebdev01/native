@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController, } from 'ionic-angular';
+import { NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
 import { TasksServiceProvider } from '../../../providers/tasks-service/tasks-service'
+//import { TasklistPage } from '../tasklist/tasklist'
 
 @Component({
   selector: 'page-newtask',
@@ -15,6 +16,8 @@ export class NewtaskPage {
     public navParams: NavParams,
     private taskservice : TasksServiceProvider,
     private toastCtrl : ToastController,
+    public viewCtrl: ViewController,
+    //private tlp : TasklistPage,
   ) {
     this.title = "Création task"
     this.taskloader()
@@ -26,6 +29,9 @@ export class NewtaskPage {
       this.priorityList = tasks.priorityList
       //console.log(this.priorityList)
     })
+  }
+  cancel(){
+    this.viewCtrl.dismiss()
   }
   createtask(){
     this.rawedate = this.taskData.edate.split("-")
@@ -40,9 +46,10 @@ export class NewtaskPage {
     console.log(this.taskData);
     
     this.taskservice.postTask(this.taskData).then((result)=>{
-      this.navCtrl.getPrevious()
+      this.cancel()
     }, (err)=>{
       console.log("erreur" + err)
+      
     })
   }
 

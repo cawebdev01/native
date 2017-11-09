@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { NotesServiceProvider } from '../../../providers/notes-service/notes-service'
 
 @Component({
@@ -11,6 +11,7 @@ export class NewnotePage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    public viewCtrl: ViewController,
     private noteservice : NotesServiceProvider,
   ) {
     this.getlist()
@@ -20,10 +21,13 @@ export class NewnotePage {
       this.notelist = notes.itemslists;
     })
   }
+  cancel(){
+    this.viewCtrl.dismiss()
+  }
   createnote(){
     console.log(this.noteData)
     this.noteservice.createNote(this.noteData).then((result)=>{
-      this.navCtrl.getPrevious()
+      this.cancel()
     }, (err)=>{
       console.log("erreur " + err)
     })

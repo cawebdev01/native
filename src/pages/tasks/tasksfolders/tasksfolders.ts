@@ -27,12 +27,10 @@ export class TasksFolders {
     })
   }
   tasks;
-  gettasks(tid){
-   this.navCtrl.push(TasklistPage, {"tid": tid})
+  gettasks(tid, name){
+   this.navCtrl.push(TasklistPage, {"tid": tid, "name":name})
   }
   newfolder(){
-    /*let myModal = this.modalCtrl.create(ModaltaskPage);
-    myModal.present();*/
     let alert = this.alertCtrl.create({
       title: 'New folder',
       inputs:[{name: 'newfolder', placeholder: 'Name', type: 'text'}],
@@ -49,10 +47,22 @@ export class TasksFolders {
     })
     alert.present()
   }
+  credential ={name:'', tid:''}
   edittaskfolder(tid, folder){
-    /*let myModal = this.modalCtrl.create(TaskgroupupdatePage, {"tid":tid, "folder":folder})
-    myModal.present()*/
-    //this.taskservice.updateGroup(tid)
+    let alert = this.alertCtrl.create({
+      title: 'Edit Tasklist',
+      message : ' Enter the new Tasklist name?',
+      inputs: [{name:'name', placeholder: folder, type: 'text'}], 
+      buttons: [{text : 'Cancel', role: 'cancel', handler: data => { }}, 
+      {text: 'Save', handler: data =>{
+        this.credential.name = data.name
+        this.credential.tid = tid
+        this.taskservice.updateGroup(this.credential).then((result)=>{
+          this.taskloader()
+        }, (err)=>{})
+      }}]
+    })
+    alert.present()
   }
   trashtaskfolder(tid){
     let alert = this.alertCtrl.create({

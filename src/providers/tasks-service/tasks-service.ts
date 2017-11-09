@@ -55,9 +55,14 @@ export class TasksServiceProvider {
     })
     
   }
-  updatetask(){
-   /* ACT_TASK_SEARCH_ALL=1&RDL=1&tpl=taskinfo&SORT=&SYEAR=2017&SMON=11&SDAY=2&EYEAR=2017&EMON=11&EDAY=2&FILTER=8&ID=IeBAKmTBw2ZMCRcyc@BAJp0LlGnm3btO3RvR_MzXtkR9v.Onztmw-&nocache=622929.2698639015
-    ACT_TASK_SET=1&GOPAGE=1&COMMENT='+credentials.content+'&EDAY=5&EMON=9&EYEAR=2019&NAME=tache%201bis&PERCENT=0&PRIORITY=3&SDAY=5&SMON=9&STATUS=2&SYEAR=2016&TLUID=1&TUID=2&tpl=tasklist_content&ID=IeBAKmTBw2ZMCRcyc@BAJp0LlGnm3btO3RvR_MzXtkR9v.Onztmw-&nocache=928828.6087580406*/
+  updatetask(cre){
+    return new Promise((resolve, reject)=>{
+      let header = new Headers()
+      header.append('Content-Type', 'application/json')
+      this.http.post(
+        this.url+'/cgi-bin/ajaxtasks?ACT_TASK_SET=1&GOPAGE=1&COMMENT='+cre.comment+'&EDAY='+cre.eday+'&EMON='+cre.emon+'&EYEAR='+cre.eyear+'&NAME='+cre.name+'&PERCENT='+cre.percent+'&PRIORITY='+cre.priority+'&SDAY='+cre.sday+'&SMON='+cre.smon+'&STATUS='+cre.status+'&SYEAR='+cre.syear+'&TLUID='+cre.tlid+'&TUID='+cre.tid+'&tpl=tasklist_content&ID='+this.sessionid, JSON.stringify(cre), {headers: header})
+        .subscribe(res => {resolve(res.json())}, (err)=> {reject(err)}) 
+    })
   }
   deletetask(tluid, tid){
     return new Promise((resolve, reject)=>{
@@ -70,5 +75,3 @@ export class TasksServiceProvider {
   }
 
 }
-/*
-ACT_TASK_SEARCH_ALL=1&RDL=1&tpl=taskinfo&SORT=&SYEAR=2017&SMON=11&SDAY=2&EYEAR=2017&EMON=11&EDAY=2&FILTER=8&ID=IeBAKmTBw2ZMCRcyc@BAJp0LlGnm3btO3RvR_MzXtkR9v.Onztmw-&nocache=737864.3013536943*/

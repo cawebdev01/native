@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 
 @Component({
   selector: 'page-noteupdate',
@@ -7,11 +7,18 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class NoteupdatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public viewCtrl: ViewController,
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NoteupdatePage');
   }
 
+  cancel(){
+    this.viewCtrl.dismiss()
+  }
 }

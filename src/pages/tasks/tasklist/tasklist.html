@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>tasklist</ion-title>
+    <ion-title>{{ title }}</ion-title>
     <ion-buttons start>
       <button ion-button (click)="newtask()">
         <ion-icon name="md-add"></ion-icon>
@@ -22,7 +22,7 @@
       </ion-col>
       <ion-col col-2>
         <button ion-button>
-          <ion-icon name="md-create" (click)="editTask(t.objectId)"></ion-icon>
+          <ion-icon name="md-create" (click)="editTask(t.objectId)"></ion-icon><!-- t.objectId, t.label-->
         </button>
       </ion-col>
       <ion-col col-2>

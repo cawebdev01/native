@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar>
-      <ion-title>{{ title }}</ion-title>
+      <ion-title>{{ taskData.name }}</ion-title>
     </ion-navbar>
   </ion-header>
   <ion-content padding>
@@ -44,7 +44,9 @@
           </ion-select>
         </ion-item>
       </ion-list>
-      <button ion-button class="submit-btn" full type="submit" (click)="updatetask()">Save</button>
-  
+      <ion-row>
+        <button ion-button class="submit-btn" full (click)="cancel()" col-6>Cancel</button>
+        <button ion-button class="submit-btn" full (click)="updatetask()" col-6>Save</button>
+      </ion-row>
   </ion-content>
   

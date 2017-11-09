@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>tasksfolders</ion-title>
+    <ion-title>Tasks</ion-title>
     <ion-buttons start>
       <button ion-button (click)="newfolder()">
           <ion-icon name="md-add"></ion-icon>
@@ -20,7 +20,7 @@
    <ion-item text-wrap *ngFor="let t of data">
      <ion-row>
       <ion-col col-8>
-      <p (click)="gettasks(t.objectId)">
+      <p (click)="gettasks(t.objectId, t.label)">
         {{ t.label }} 
       </p> </ion-col> 
       

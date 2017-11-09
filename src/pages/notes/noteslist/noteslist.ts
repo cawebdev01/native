@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import { NotesServiceProvider } from '../../../providers/notes-service/notes-service';
 import { NotedetailsPage } from '../notedetails/notedetails';
-//import { NoteupdatePage } from '../noteupdate/noteupdate'
+import { NoteupdatePage } from '../noteupdate/noteupdate'
+import { NewnotePage } from '../newnote/newnote'
 
 @Component({
   selector: 'page-noteslist',
@@ -13,6 +14,8 @@ notes ; title
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    public alertCtrl: AlertController,
+    public modalCtrl: ModalController,
     private noteservice: NotesServiceProvider,
   ) {
     this.notes = navParams.get("nid")
@@ -26,13 +29,45 @@ notes ; title
       this.page = notes.pageInfo
     })
   }
+  newnote(){
+    let modal = this.modalCtrl.create(NewnotePage)
+    modal.onDidDismiss(()=>{
+      this.loadNotes()
+    })
+    modal.present()
+  }
   notedetail(noteid){
     this.navCtrl.push(NotedetailsPage , {"noteid": noteid, "notegroup": this.notes})
   }
   editnote(noteid){
-
+    let modal = this.modalCtrl.create(NoteupdatePage)
+    modal.onDidDismiss(()=>{
+      this.loadNotes()
+    })
+    modal.present()
   }
   trashnote(noteid){
-    this.noteservice.deleteNote(this.notes, noteid)
+    let alert = this.alertCtrl.create({
+      title: 'Delete Task',
+      message : ' Are you sure to want to delete this task?',
+      buttons: [
+        {
+          text : 'Cancel', 
+          role: 'cancel',
+          handler: ()=> {
+            console.log('Cancel clicked')
+          }
+        }, {
+          text: 'Delete',
+          handler: ()=>{
+            this.noteservice.deleteNote(this.notes, noteid).then((result)=>{
+              this.loadNotes()
+            }, (err)=>{
+            })
+          }
+        }
+      ]
+    })
+    alert.present()
   }
 }

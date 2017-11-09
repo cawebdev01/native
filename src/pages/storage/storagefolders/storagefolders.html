@@ -1,25 +1,26 @@
 <ion-header>
-
   <ion-navbar>
-    <ion-title>storagefolders</ion-title>
+    <ion-title>Documents</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="newfolder()">
+        <ion-icon name="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
   <ion-list>
   <ion-item text-wrap *ngFor="let pf of persofolder" >
-    <!--{{ persofolder | json }} -->
-      <p (click)="getdetails(pf.objectId)">{{ pf.label | uppercase }} </p>
+    <ion-row>
+      <ion-col (click)="getdetails(pf.objectId)" col-7>{{ pf.label | uppercase }} </ion-col>
+      <button col-2 ion-button (click)="editfolder(pf.objectId, pf.label)" *ngIf="pf.actionsDisabled == ''">
+        <ion-icon name="md-create"></ion-icon>
+      </button>
+      <button col-2 ion-button (click)="trashfolder(pf.objectId)" *ngIf="pf.actionsDisabled == ''">
+        <ion-icon name="ios-trash-outline"></ion-icon>
+      </button>    
+    </ion-row> 
     </ion-item>
   </ion-list>
-<!--total:   {{ total }} <br>
-   data:  {{ data | json}} <br -->
-  
 </ion-content>
-<ion-footer>
-  <ion-buttons end>
-    <button ion-button>Ajouter un dossier</button>  
-  </ion-buttons> 
-</ion-footer>

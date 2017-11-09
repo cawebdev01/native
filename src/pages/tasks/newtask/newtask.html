@@ -44,6 +44,9 @@
         </ion-select>
       </ion-item>
     </ion-list>
-    <button ion-button class="submit-btn" full type="submit" (click)="createtask()">Create</button>
-
+    <ion-row>
+      <button ion-button class="submit-btn" full (click)="cancel()" col-6>Cancel</button>
+      <button ion-button class="submit-btn" full type="submit" (click)="createtask()" col-6>Create</button>
+    </ion-row>
+    
 </ion-content>

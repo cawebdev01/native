@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -14,5 +14,32 @@ sessionid; url;
   }
   getStorageContent(folder){
     return this.http.get(this.url+'/cgi-bin/ajaxfile?ACT_FIL_GOPAGE=1&GOPAGE=1&tpl=file_list&SID=3&SENS=1&ID='+this.sessionid+'&CURRENTUID='+folder+'&FUID=&EXPZIP=0&EPLCSET=&SHRUID=').map((res:Response)=> res.json())
+  }
+  createFolder(name, fav){
+    return new Promise((resolve, reject)=>{
+      let header = new Headers()
+      header.append('Content-Type', 'application/json')
+        this.http.post(
+          this.url+'/cgi-bin/ajaxfile?ACT_FIL_NFOLDER=1&NONAVIG=1&tpl=fld_upd&ICON=1&NAME='+name+'&FAVORITE='+fav+'&ID='+this.sessionid, JSON.stringify(name, fav), {headers: header})
+          .subscribe(res => { resolve(res.json()) }, (err) => { reject(err) })
+      })
+  }
+  updateFolder(name, fav, fid){
+    return new Promise((resolve, reject)=>{
+      let header = new Headers()
+      header.append('Content-Type', 'application/json')
+        this.http.post(
+          this.url+'/cgi-bin/ajaxfile?ACT_FIL_PROP=1&EXPANDALL=1&NONAVIG=1&tpl=fld_upd&ICON=1&NAME='+name+'&FAVORITE='+fav+'&FUID='+fid+'&ID='+this.sessionid, JSON.stringify(name, fav, fid), {headers: header})
+          .subscribe(res => { resolve(res.json()) }, (err) => { reject(err) })
+      })
+  }
+  deleteFolder(fid){
+    return new Promise((resolve, reject)=>{
+      let header = new Headers()
+      header.append('Content-Type', 'application/json')
+      this.http.post(
+        this.url+'/cgi-bin/ajaxfile?ACT_FIL_DEL=1&EXPANDALL=1&NONAVIG=1&tpl=fld_upd&ID='+this.sessionid+'&DELID='+fid, JSON.stringify(fid), {headers: header})
+        .subscribe(res => { resolve(res.json()) }, (err) => { reject(err) })
+    })
   }
 }
