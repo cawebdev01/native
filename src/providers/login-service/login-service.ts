@@ -18,6 +18,7 @@ export class LoginService {
       let header = new Headers()
       header.append('Content-Type', 'application/json')
       this.http.post(
+        //'https://webmailstaffnewuitest.aruba.it/cgi-bin/ajaxmail?Act_Msgs=1&Tpl=login&LOGIN='+credentials.email+'&PASSWD='+credentials.password+'&SG_Lang='+credentials.lang, JSON.stringify(credentials), {headers: header})
         'http://www1.dc.xandmail.com/ca/testbuild_leggera/cgi-bin/ajaxmail?Act_Msgs=1&Tpl=login&LOGIN='+credentials.email+'&PASSWD='+credentials.password+'&SG_Lang='+credentials.lang, JSON.stringify(credentials), {headers: header})
         .subscribe(res => {
           resolve(res.json());
@@ -32,6 +33,7 @@ export class LoginService {
   }
   public logout() {
     this.sessionid = localStorage.getItem('sessionid');
+   // this.http.get('https://webmailstaffnewuitest.aruba.it/cgi-bin/ajaxmail?Act_Logout=1&&CleanSession=1&ID='+this.sessionid)
     this.http.get('http://www1.dc.xandmail.com/ca/testbuild_leggera/cgi-bin/ajaxmail?Act_Logout=1&&CleanSession=1&ID='+this.sessionid)
   }
 }

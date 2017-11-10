@@ -5,22 +5,58 @@
 </ion-header>
 
 <ion-content padding>
+  
   <h1>{{ cn }}</h1>
-  <em>{{ job }}</em> <br><br>
-  <!--{{ bth | json }}-->
+  <em>{{ job }}</em> <br><hr>
+  <ion-row *ngFor="let t of phones">
+    <ion-col col-4 *ngIf="t.type =='mobile' && t.value !=''">Mobile</ion-col>
+    <ion-col col-4 *ngIf="t.type =='business' && t.value !=''">Business</ion-col>
+    <ion-col col-4 *ngIf="t.type =='personal' && t.value !=''">Personal</ion-col>  
+    <ion-col col-4 *ngIf="t.type =='fax' && t.value !=''">Fax</ion-col>  
+    <ion-col col-8 *ngIf="t.value!=''">{{ t.value }}</ion-col>  
+  </ion-row>
+  <ion-row *ngFor="let m of mails">
+    <ion-col col-4 *ngIf="m.value != '' && m.type == 'email_personal'">Personal</ion-col>
+    <ion-col col-4 *ngIf="m.value != '' && m.type == 'email_business'">Business</ion-col>
+    <ion-col col-8 *ngIf="m.value != ''">{{ m.value }}</ion-col>
+  </ion-row>
+  <ion-row *ngFor="let u of urls">
+    <ion-col col-4 *ngIf="u.value != '' && u.type == 'HURL'">
+      Personnal
+    </ion-col>
+
+    <ion-col col-4 *ngIf="u.value != '' && u.type == 'WURL'">
+        Business
+    </ion-col>
+    <ion-col col-4 *ngIf="u.value != '' && u.type == 'social_facebook'">
+      Facebook
+    </ion-col>
+    <ion-col col-8 *ngIf="u.value !=''">{{ u.value }}</ion-col>
+  </ion-row>
+  <ion-row *ngFor="let p of address">
+    <ion-col col-4 *ngIf="p.street != '' && p.type == 'HLABEL'">
+      Personnal
+    </ion-col>
+    <ion-col col-4 *ngIf="p.street != '' && p.type == 'WLABEL'">
+      Business
+    </ion-col>
+    <ion-col col-8 *ngIf="p.street !=''">
+      {{p.street}} <br>
+      {{ p.zipcode }} {{ p.city }}<br>
+      <span *ngIf="p.state != ''">{{ p.state }} <br></span>
+      {{ p.country }}  
+    </ion-col>
+    <br><br>
+  </ion-row>
   <ion-row *ngFor="let b of bth" >
-    <div *ngIf="b.value != ''" >
-      <ion-col col-4 *ngIf="b.type=='dbirthday'" text-left>Birthday</ion-col>
-      <ion-col col-4 *ngIf="b.type=='dwedding'" text-left>Wedding</ion-col>
-      <ion-col col-4 *ngIf="b.type=='dother'" text-left>Other</ion-col>
-      <ion-col col-8 text-right>{{ b.day }}/{{ b.month }}/{{ b.year }}</ion-col>
-    </div>
+      <ion-col col-4 *ngIf="b.value != '' && b.type=='dbirthday'">Birthday</ion-col>
+      <ion-col col-4 *ngIf="b.value != '' && b.type=='dwedding'" >Wedding</ion-col>
+      <ion-col col-4 *ngIf="b.value != '' && b.type=='dother'" >Other</ion-col>
+      <ion-col col-8 *ngIf="b.value != ''">{{ b.day }}/{{ b.month }}/{{ b.year }}</ion-col>
   </ion-row>
   <hr>
   <ion-row *ngFor="let c of cnotes">
-    <div *ngIf="c.value != ''">
-      <ion-col col-4>Notes</ion-col>
-      <ion-col col-8>Toto</ion-col>
-    </div>
+      <ion-col col-4 *ngIf="c.value != ''">Notes</ion-col>
+      <ion-col col-8 *ngIf="c.value != ''">{{ c.value }}</ion-col>
   </ion-row>
 </ion-content>

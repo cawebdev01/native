@@ -17,13 +17,20 @@ abid; cuid;
     this.cuid = navParams.get("cuid");
     this.loadContact()
   }
-  cn; job; bth; cnotes
+  cn; job; bth; cnotes; address; rname;urls;ims; phones; mails; ph
   loadContact(){
     this.abookservice.getABContact(this.abid, this.cuid).subscribe(contact =>{
       this.cn = contact.composeName
       this.job = contact.jobtitle
       this.bth = contact.contactDates
       this.cnotes = contact.contactNotes
+      this.address = contact.contactPostalAddresses
+      this.rname = contact.contactRelatedNames
+      this.urls = contact.contactUrls
+      this.ims = contact.contactIms
+      this.phones = contact.contactPhones
+      this.mails = contact.contactEmails
+      this.ph = contact.phones
     })
   }
 }
