@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>abooks</ion-title>
+    <ion-title>Contacts</ion-title>
     <ion-buttons start>
         <button ion-button (click)="newfolder()">
             <ion-icon name="md-add"></ion-icon>
@@ -13,7 +13,7 @@
   <ion-list>
     <ion-item text-wrap *ngFor="let a of abooks">
       <ion-row>
-        <p (click)="contactslist(a.objectId)" col-7>{{ a.label }}</p>
+        <p (click)="contactslist(a.objectId, a.label)" col-7>{{ a.label }}</p>
         <button ion-button col-2 *ngIf="a.objectId != '' && a.objectId != 'oab' && a.objectId != 'cab'" (click)="editlistname(a.objectId, a.label)">
           <ion-icon name="md-create"></ion-icon>
         </button>

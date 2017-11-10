@@ -7,7 +7,7 @@ import { AbookcontactPage } from '../abookcontact/abookcontact';
   templateUrl: 'abookslist.html',
 })
 export class AbookslistPage {
-  oid
+  oid; title
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -15,6 +15,7 @@ export class AbookslistPage {
     
    ) {
     this.oid = navParams.get("oid"),
+    this.title = navParams.get('name')
     this.loadABContent()
   }
 

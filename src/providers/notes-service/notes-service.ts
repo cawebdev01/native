@@ -59,7 +59,7 @@ export class NotesServiceProvider {
       let header = new Headers()
       header.append('Content-Type', 'application/json')
       this.http.post(
-        this.url+'/cgi-bin/ajaxnotes?ACT_NOTE_SET=1&tpl=notelist_content&NLUID='+credentials.nluid+'&NUID=&NAME='+credentials.name+'&CONTENT='+credentials.content+'&GOPAGE=1&FormatHTML=1&ID='+this.sessionid, JSON.stringify(credentials), {headers: header})
+        this.url+'/cgi-bin/ajaxnotes?ACT_NOTE_SET=1&tpl=notelist_content&NLUID='+credentials.noteliste+'&NUID='+credentials.nid+'&NAME='+credentials.title+'&CONTENT='+credentials.content+'&GOPAGE=1&FormatHTML=1&ID='+this.sessionid, JSON.stringify(credentials), {headers: header})
       .subscribe(res=> {resolve(res.json())}, (err)=>{reject(err)})
     })
   }

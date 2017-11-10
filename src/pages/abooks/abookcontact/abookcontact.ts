@@ -17,11 +17,13 @@ abid; cuid;
     this.cuid = navParams.get("cuid");
     this.loadContact()
   }
-  cn; mobile;
+  cn; job; bth; cnotes
   loadContact(){
     this.abookservice.getABContact(this.abid, this.cuid).subscribe(contact =>{
-      this.cn = contact.composeName;
-      this.mobile = contact.contactPhones
+      this.cn = contact.composeName
+      this.job = contact.jobtitle
+      this.bth = contact.contactDates
+      this.cnotes = contact.contactNotes
     })
   }
 }

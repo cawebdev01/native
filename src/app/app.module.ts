@@ -52,6 +52,7 @@ import { NewtaskPage } from '../pages/tasks/newtask/newtask'
 //import { TabsPage } from '../pages/tabs/tabs'
 import { NotefoldermodalePage } from '../pages/notes/notefoldermodale/notefoldermodale'
 import { NotefolderupdatePage } from '../pages/notes/notefolderupdate/notefolderupdate'
+import { NoteupdatePage } from '../pages/notes/noteupdate/noteupdate'
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { NotefolderupdatePage } from '../pages/notes/notefolderupdate/notefolder
     NotesFolders,
     NoteslistPage,
     NotedetailsPage,
+    NoteupdatePage,
     TasksFolders,
     TasklistPage,
     TasksdetailsPage,
@@ -120,6 +122,7 @@ import { NotefolderupdatePage } from '../pages/notes/notefolderupdate/notefolder
     NotesFolders,
     NoteslistPage,
     NotedetailsPage,
+    NoteupdatePage,
     NotefolderupdatePage,
     TasksFolders,
     TasklistPage,

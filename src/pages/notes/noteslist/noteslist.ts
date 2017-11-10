@@ -40,7 +40,7 @@ notes ; title
     this.navCtrl.push(NotedetailsPage , {"noteid": noteid, "notegroup": this.notes})
   }
   editnote(noteid){
-    let modal = this.modalCtrl.create(NoteupdatePage)
+    let modal = this.modalCtrl.create(NoteupdatePage, {'nid':noteid, 'nlid':this.notes})
     modal.onDidDismiss(()=>{
       this.loadNotes()
     })

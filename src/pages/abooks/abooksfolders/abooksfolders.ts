@@ -9,16 +9,13 @@ import { AbookslistPage } from '../abookslist/abookslist'
 })
 
 export class AbooksFolders {
-  public sessionid
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public modalCtrl: ModalController,
     private alerteCtrl: AlertController,
-    private abooksService: AbooksService,
-    
+    private abooksService: AbooksService,    
   ) {
-    this.sessionid = localStorage.getItem('sessionid')
     this.loadAbooks()
   }
   status; abid; objectNb; groups; abooks; 
@@ -31,8 +28,8 @@ export class AbooksFolders {
       this.abooks = datas.abooks
     })
   }
-  contactslist(oid){
-    this.navCtrl.push(AbookslistPage, {"oid": oid})
+  contactslist(oid, label){
+    this.navCtrl.push(AbookslistPage, {"oid": oid, 'name':label})
   }
   credential = {name:'', oid:''}
   editlistname(oid, oldname){
