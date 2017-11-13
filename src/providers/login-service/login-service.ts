@@ -33,8 +33,8 @@ export class LoginService {
   }
   public logout() {
     this.sessionid = localStorage.getItem('sessionid');
-   // this.http.get('https://webmailstaffnewuitest.aruba.it/cgi-bin/ajaxmail?Act_Logout=1&&CleanSession=1&ID='+this.sessionid)
-    this.http.get('http://www1.dc.xandmail.com/ca/testbuild_leggera/cgi-bin/ajaxmail?Act_Logout=1&&CleanSession=1&ID='+this.sessionid)
+     //this.http.get('https://webmailstaffnewuitest.aruba.it/cgi-bin/ajaxmail?Act_Logout=1&&CleanSession=1&ID='+this.sessionid)
+      this.http.get('http://www1.dc.xandmail.com/ca/testbuild_leggera/cgi-bin/ajaxmail?Act_Logout=1&&CleanSession=1&ID='+this.sessionid)
   }
 }
 export class User{

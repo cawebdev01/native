@@ -8,7 +8,8 @@ import { Calendar } from '@ionic-native/calendar';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { FileOpener } from '@ionic-native/file-opener';
-import { Toast } from '@ionic-native/toast'
+import { Toast } from '@ionic-native/toast';
+import { NgCalendarModule } from 'ionic2-calendar'
 
 import { MyApp } from './app.component';
 
@@ -93,6 +94,7 @@ import { NoteupdatePage } from '../pages/notes/noteupdate/noteupdate'
   imports: [
     BrowserModule,
     HttpModule,
+    NgCalendarModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
