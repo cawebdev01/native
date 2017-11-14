@@ -1,0 +1,11 @@
+{
+	"arrowup_arrowdown": "Arrow Up, Arrow Down;Navigation en liste;Ouvre l'élément suivant ou précédent dans la liste des messages, contacts, fichiers, tâches ou notes.",
+	"c": "C;Nouveau message;Ouvre une fenêtre de composition. Fonctionne dans tous les modules.",
+	"ctrl_enter": "Ctrl+Enter;Sauvegarder ou envoyer;Envoie le message en cours de composition, ou sauvegarde un document. Fonctionne dans les fenêtres d'édition (éditeur de message, éditeur de document, éditeur de note).",
+	"escape": "Esc;Fermer la fenêtre active;Ferme une fenêtre de dialogue ou de composition active.",
+	"f": "F;Transfert;Transfère le message actuellement sélectionné. Ne fonctionne que dans les messages.",
+	"n": "N;Nouvel élément; Ouvre une fenêtre Nouvel élément correspondant au contexte actuel - nouveau message, nouveau contact, etc.",
+	"pageup_pagedown": "PageUp, PageDown;Navigation en visualisation;Scrolle vers le haut ou le bas dans la visualisation d'un message, un contact, les propriétés d'un fichier, une tâche ou une note.",
+	"r": "R;Réponse;Répond au message actuellement sélectionné. Ne fonctionne que dans les messages.",
+	"u": "U;Rafraichir la liste des messages; Recherche les nouveaux messages. Fonctionne dans tous les modules."
+}

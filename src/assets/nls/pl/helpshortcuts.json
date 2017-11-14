@@ -1,0 +1,11 @@
+{
+	"arrowup_arrowdown": "Strzałka w górę, Strzałka w dół;Nawigacja listą;Otwiera następny lub poprzedni element z listy wiadomości, kontaktów, plików, zadań lub notatek.",
+	"c": "C;Nowa wiadomość;Otwiera okno tworzenia wiadomości. Działa z dowolnego miejsca.",
+	"ctrl_enter": "Ctrl+Enter;Zapisz lub wyślij;Wysyła tworzoną wiadomość, lub zapisuje dokument. Działa w dowolnym oknie edytora(edytor wiadomości, edytor dokumentów, edytor notatek).",
+	"escape": "Esc;Zamknij aktywne okno;Zamyka aktywne, aktualnie wyświetlane okno dialogowe lub okno tworzenia wiadomości.",
+	"f": "F;Przekaż;Przekazuje aktualnie wybraną wiadomość. Działa tylko dla wiadomości.",
+	"n": "N;Nowy element; Otwiera okno nowego elementu w zależności od wybranego kontekstu - nową wiadomość, nowy kontakt, itd.",
+	"pageup_pagedown": "PageUp, PageDown;Nawigacja widokiem;Przewija w górę lub w dół wyświetlaną wiadomość, kontakt, właściwości pliu, zadanie lub notatkę.",
+	"r": "R;Odpowiedz;Otwiera okno odpowiedzi dla aktualnie wybranej wiadomości. Działa tylko dla wiadomości.",
+	"u": "U;Odśwież listę wiadomości; Sprawdza czy są nowe wiadomości. Działa w dowolnym module."
+}

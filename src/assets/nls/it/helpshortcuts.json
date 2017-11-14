@@ -1,0 +1,11 @@
+{
+	"arrowup_arrowdown": "Freccia Su, Freccia Giù;Navigazione elenco;Apre prossimo/precedente elemento dell'elenco.",
+	"c": "C;Nuovo messaggio;Apre una finestra di composizione. Funziona da qualunque modulo.",
+	"ctrl_enter": "Ctrl+Enter;Salva o invia;Invia un messaggio in via di composizione, o salva un documento. Funziona su qualunque finestra dell'editor (editor messaggi, editor documenti, editor note).",
+	"escape": "Esc;Chiudi finestra attiva;Chiude una finestra dialogo attiva o finestra di composizione che ha il focus.",
+	"f": "F;Inoltra;Inoltra un messaggio attualmente selezionato. Funziona solo nei messaggi.",
+	"n": "N;Elemento nuovo; Apre una nuova finestra elemento in base al contesto selezionato - nuovo messaggio, nuovo contatto, ecc.",
+	"pageup_pagedown": "PaginaSu, PaginaGiù;Navigazione messaggio;Apre prossimo/precedente messaggio nella pagina anteprima messaggio. Funziona solo nei messaggi.",
+	"r": "R;Rispondi;Risponde a un messaggio attualmente selezionato. Funziona solo nei messaggi.",
+	"u": "U;Aggiorna elenco messaggi; Controlla se ci sono nuovi messaggi. Funziona da qualunque modulo."
+}

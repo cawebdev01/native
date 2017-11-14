@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>calendardetail</ion-title>
+    <ion-title>calendardetail </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="addEvent()">
         <ion-icon name="add"></ion-icon>
@@ -10,6 +10,7 @@
 </ion-header>
 
 <ion-content padding>
+  <h1 text-center>{{ viewTitle }}</h1>
   <calendar [eventSource]="eventSource"
   [calendarMode]="calendar.mode"
   [currentDate]="calendar.currentDate"

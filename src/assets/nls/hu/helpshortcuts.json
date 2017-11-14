@@ -1,0 +1,11 @@
+{
+	"arrowup_arrowdown": "Arrow Up, Arrow Down;Navigálás a listában;Megnyitja a következő/előző tételt az üzenetek, kapcsolatok, fájlok, feladatok vagy jegyzetek listájában.",
+	"c": "C;Új üzenet;Megnyit egy írás ablakot. Minden modulból működik.",
+	"ctrl_enter": "Ctrl+Enter;Mentés vagy Küldés;Elküldi az éppen írt üzenetet, vagy elment egy dokumentumot. Minden szerkesztő ablakban működik (üzenet szerkesztő, dokumentum szerkesztő, jegyzet szerkesztő).",
+	"escape": "Esc;Aktív ablak bezárás;Bezárja az előtérben álló, aktív párbeszéd vagy írás ablakot.",
+	"f": "F;Továbbítás;Továbbítja az aktuálisan kiválasztott üzenetet. Csak az üzeneteknél működk.",
+	"n": "N;Új tétel; Megnyit egy új tétel ablakot, a választott funkciótól függően - új üzenet, új kapcsolat, stb.",
+	"pageup_pagedown": "PageUp, PageDown;Navigálás a nézetben;Lefelé vagy felfelé görget egy üzenetet, kapcsolat, fájl tulajdonság, feladat vagy jegyzet nézetében.",
+	"r": "R;Válasz;Válaszol az aktuálisan kiválasztott üzenetre. Csak az üzeneteknél működk.",
+	"u": "U;Üzenet lista frissítés; Ellenőrzi, ha van új üzenet. Minden modulból működik."
+}

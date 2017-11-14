@@ -14,6 +14,7 @@
     Welcome on your application
   </h3>
   <p>Your email is : {{ email }}</p>
+  <p>{{ 'abook_zip'| translate }}</p>
 
   
   <button ion-button class="mails-btn" full (click)="mails()">Messages<ion-badge item-end *ngIf="this.newMsg!=0">({{ newMsg }})</ion-badge></button><br>

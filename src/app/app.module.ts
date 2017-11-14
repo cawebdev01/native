@@ -1,4 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule} from '@angular/common/http'
 import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule, LoadingController } from 'ionic-angular';
@@ -55,6 +58,14 @@ import { NotefoldermodalePage } from '../pages/notes/notefoldermodale/notefolder
 import { NotefolderupdatePage } from '../pages/notes/notefolderupdate/notefolderupdate'
 import { NoteupdatePage } from '../pages/notes/noteupdate/noteupdate'
 
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient, "../assets/nls/", "/blind.json");
+  /*return new TranslateHttpLoader(httpClient, "../assets/nls/", "/blind.json");
+  return new TranslateHttpLoader(httpClient, "../assets/nls/", "/abook.json");
+  return new TranslateHttpLoader(httpClient, "../assets/nls/", "/abook.json");
+  return new TranslateHttpLoader(httpClient, "../assets/nls/", "/abook.json");*/
+}
+
 @NgModule({
   declarations: [
     MyApp,
@@ -94,7 +105,15 @@ import { NoteupdatePage } from '../pages/notes/noteupdate/noteupdate'
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     NgCalendarModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory : HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

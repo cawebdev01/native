@@ -29,6 +29,7 @@ export class LoginPage {
         localStorage.setItem('url', this.loginData.url);
         localStorage.setItem('email', this.loginData.resources.mailAddress);
         localStorage.setItem('password', this.userData.password);
+        localStorage.setItem('lang', this.userData.lang)
         this.navCtrl.setRoot( HomePage )
       } else if(this.loginData.status.err_code == 1000 ){
         this.showError(this.loginData.status.err_txt)

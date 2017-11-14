@@ -1,0 +1,11 @@
+{
+	"arrowup_arrowdown": "Flecha arriba, Flecha abajo;Lista navegación;Abre el próximo o anterior elemento en la lista de mensajes, contactos, archivos, tareas o notas.",
+	"c": "C;Mensaje Nuevo;Abre una ventana de composición. Funciona desde cualquier módulo.",
+	"ctrl_enter": "Ctrl+Enter;Guardar o enviar;Envía un mensaje en composición, o guarda un documento. Funciona en cualquier ventana de edición (editor de mensaje, editor de documento ,editor de notas).",
+	"escape": "Esc;Cerrar ventana activa;Cierra un diálogo activo o ventana de composición que tenga enfoque.",
+	"f": "F;Reenviar;Reenvía un mensaje seleccionado. Funciona únicamente con mensajes.",
+	"n": "N;Nuevo elemento; Abre una determinada nueva ventana dependiendo en el contexto seleccionado - nuevo mensaje, nuevo contacto, etc.",
+	"pageup_pagedown": "PáginaArriba, PáginaAbajo;Visualizar navegación;Se desplaza arriba o abajo en la vista de un mensaje, contacto, propiedades de archivo, una tarea o nota.",
+	"r": "R;Responder;Responde a un mensaje seleccionado. Funciona únicamente con mensajes.",
+	"u": "U;Actualiza la lista de mensajes; Controla la llegada de nuevos mensajes. Funciona desde cualquier módulo."
+}

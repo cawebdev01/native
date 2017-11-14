@@ -1,0 +1,11 @@
+{
+	"arrowup_arrowdown": "Arrow Up, Arrow Down;List navigation;Opens the next or previous item in the list of messages, contacts, files, tasks or notes.",
+	"c": "C;New message;Opens a compose window. Works from any module.",
+	"ctrl_enter": "Ctrl+Enter;Save or send;Sends a message being composed, or saves a document. Works in any editor window (message editor, document editor, note editor).",
+	"escape": "Esc;Close active window;Closes an active dialog or compose window that has a focus.",
+	"f": "F;Forward;Forwards a currently selected message. Only works in messages.",
+	"n": "N;New item; Opens a new item window depending on the selected context - new message, new contact, etc.",
+	"pageup_pagedown": "PageUp, PageDown;View navigation;Scrolls up or down in the view of a message, a contact, a file's properties, a task or a note.",
+	"r": "R;Reply;Replies to a currently selected message. Only works in messages.",
+	"u": "U;Refresh message list; Checks for new messages. Works from any module."
+}

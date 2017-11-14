@@ -1,0 +1,11 @@
+{
+	"arrowup_arrowdown": "Šipka nahoru, Šipka dolů;Pohyb v seznamu;Zobrazí další/předchozí položku v seznamu zpráv, kontaktů, souborů úkolů nebo poznámek.",
+	"c": "C;Napsat zprávu;Otevře okno psaní nové zprávy. Funkční v jakémkoliv modulu.",
+	"ctrl_enter": "Ctrl+Enter;Uložit nebo odeslat;Odešle aktuálně rozepsanou zprávu nebo uloží a zavře dokument. Funkční v jakémkoliv editoru (editor zpráv, dokumentů, úkolů...).",
+	"escape": "Esc;Zavřít;Zavře aktivní dialog nebo okno, ve kterém se právě nacházíte.",
+	"f": "F;Přeposlat;Přepošle aktuálně vybranou zprávu(y). Funkční pouze v modulu Zprávy.",
+	"n": "N;Nová položka;Otevře okno pro vytvoření nové položky v závislosti na tom, v jakém modulu se nacházíte - nová zpráva, nový kontakt, atd.",
+	"pageup_pagedown": "PageUp, PageDown;Stránkování obsahu;Posun obsahu okna zprávy, kontaktů, vlastností souborů, úkolů nebo poznámek.",
+	"r": "R;Odpovědět;Vytvoří odpověď na aktuálně vybranou zprávu. Funkční pouze v modulu Zprávy.",
+	"u": "U;Obnovení obsahu; Kontrola nových zpráv ve schránce. Funkční ve všech modulech."
+}
