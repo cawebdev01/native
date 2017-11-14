@@ -17,7 +17,11 @@ export class LoginService {
     return new Promise((resolve, reject) =>{
       let header = new Headers()
       header.append('Content-Type', 'application/json')
+     /* let url = 'https://webmailstaffnewuitest.aruba.it'
+      let body = 'cgi-bin/ajaxmail'
+      let option = 'Act_Msgs=1&Tpl=login&LOGIN='+credentials.email+'&PASSWD='+credentials.password+'&SG_Lang='+credentials.lang+', JSON.stringify(credentials), {headers: header}'*/
       this.http.post(
+        //url, body, option )
         //'https://webmailstaffnewuitest.aruba.it/cgi-bin/ajaxmail?Act_Msgs=1&Tpl=login&LOGIN='+credentials.email+'&PASSWD='+credentials.password+'&SG_Lang='+credentials.lang, JSON.stringify(credentials), {headers: header})
         'http://www1.dc.xandmail.com/ca/testbuild_leggera/cgi-bin/ajaxmail?Act_Msgs=1&Tpl=login&LOGIN='+credentials.email+'&PASSWD='+credentials.password+'&SG_Lang='+credentials.lang, JSON.stringify(credentials), {headers: header})
         .subscribe(res => {

@@ -18,6 +18,9 @@ export class NotesServiceProvider {
   getNote(noteid, notegroup){
     return this.http.get(this.url+'/cgi-bin/ajaxnotes?ACT_NOTE=1&tpl=noteedit&NLUID='+notegroup+'&NUID='+noteid+'&ID='+this.sessionid).map((res:Response)=>res.json())
   }
+  getNextpage(folder, page){
+    return this.http.get(this.url+'/cgi-bin/ajaxnotes?ACT_NOTE_LIST_NEXT=1&Tpl=notelist_content&NLUID='+folder+'&SORT='+page+'&allowAccessMode=0&ID='+this.sessionid).map((res:Response)=>res.json())
+  }
   createNotelist(nlname){
     return new Promise((resolve, reject)=>{
       let header = new Headers()

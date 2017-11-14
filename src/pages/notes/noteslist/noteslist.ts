@@ -70,4 +70,21 @@ notes ; title
     })
     alert.present()
   }
+  nxp; length
+  nextpage(infiniteScroll){
+    this.page.page = this.page.page+1
+    setTimeout(()=>{
+      this.noteservice.getNextpage(this.notes, this.page.page)
+      .subscribe( notes =>{
+        this.data = notes.data;
+        this.page = notes.pageInfo;
+        this.nxp = notes.pageInfo.nextPage;
+        this.length = notes.data.length;
+        for(let i=0; i< this.length; i++){
+          this.notes.push(this.data.data[i])
+        }
+      })
+      infiniteScroll.complete()
+    }, 1000)
+  }
 }

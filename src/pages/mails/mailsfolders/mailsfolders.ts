@@ -19,9 +19,9 @@ export class MailsFolders {
     this.folderid = navParams.get("folderid")
     this.title = navParams.get("title") 
     this.loadMails(this.folderid)
-    this.refresh = setInterval(() =>{
+    /*this.refresh = setInterval(() =>{
 			this.loadMails(this.folderid)
-    }, 360000); 
+    }, 360000); */
     
   }
   public loadMails(folderid){
@@ -46,13 +46,13 @@ export class MailsFolders {
         mails => {
           this.data = mails;
           this.oid = mails.data.objectId;
-          this.pageinfo =  this.pageinfo = mails.pageInfo;
+          this.pageinfo = mails.pageInfo;
           this.nxp = mails.pageInfo.nextPage
           this.impFolder = mails.importantFolders;
           this.dataUnread = mails.dataUnread;
           this.status = mails.status;
-          this.length = mails.data.length;
-          for(let i=0; i<this.length; i++){
+          this.length = mails.pageInfo.pageCount;
+          for(let i=0; i < 1+this.length; i++){
             this.mails.push(this.data.data[i])
           }
         }
@@ -61,9 +61,9 @@ export class MailsFolders {
       infiniteScroll.complete()
     }, 1000)
   }
-  reload(){
+  /*reload(){
     this.loadMails(this.folderid)
-  }
+  }*/
   items; texts
   setItemsSearch(){
     this.items = this.mails

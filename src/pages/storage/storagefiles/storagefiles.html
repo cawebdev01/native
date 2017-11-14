@@ -24,9 +24,13 @@
       {{ d.size }}</p>
     </ion-item>
   </ion-list>
+  <ion-infinite-scroll (ionInfinite)="nexpage($event)" *ngIf="nxp == true">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="More data &hellip;"></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>
 <ion-footer>
   <ion-buttons end>
     <button ion-button>Ajouter un document</button>  
   </ion-buttons> 
+
 </ion-footer>

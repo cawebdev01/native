@@ -38,7 +38,7 @@ export class HomePage {
 	) {
 		this.backgroundMode.enable();
 		this.newMails();
-		this.testbg = this.backgroundMode.isEnabled();
+	/*	this.testbg = this.backgroundMode.isEnabled();
 		if(this.testbg == 0){
 			this.task = setInterval(() =>{
 			this.newMails()
@@ -49,7 +49,7 @@ export class HomePage {
 			this.task =setInterval(()=>{
 				this.newMails()
 			}, 60000)
-		}
+		}*/
 		this.email = localStorage.getItem('email');
 		this.url = localStorage.getItem('url');
 		this.sessionid = localStorage.getItem('sessionid');
