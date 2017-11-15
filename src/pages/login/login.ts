@@ -10,7 +10,8 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
   loginData; loading;
-  userData = {email:'', password: '', lang: 'en', NEWMOBILE: '1'};
+  userData = {email:'', password: '', lang: '', NEWMOBILE: '1'};
+  langs= [{id:'cz', value:'cz'}, {id:'en', value:'en'}, {id:'es',value:'es'}, {id:'fr',value:'fr'}, {id:'hu',value:'hu'}, {id:'it',value:'it'}, {id:'pl',value:'pl'}, {id:'sk',value:'sk'}]
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -18,7 +19,9 @@ export class LoginPage {
     private toastCtrl : ToastController,
     private loginservice : LoginService,
     public alertCtrl : AlertController,
-  ) { }
+  ) {
+    this.langs
+   }
   public login(){
     this.showLoading();
     this.loginservice.login(this.userData).then((result)=>{

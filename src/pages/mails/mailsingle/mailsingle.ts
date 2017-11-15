@@ -18,9 +18,10 @@ export class MailsinglePage {
     this.folderid = navParams.get("folderid");
     this.openMail();
   }
-  from; to; cc; bcc; sub; date; text; attach;
+  from; to; cc; bcc; sub; date; text; attach; global
   openMail(){
     this.mailsservice.getMail(this.msgid, this.folderid).subscribe(mail =>{
+      this.global = mail
       this.from = mail.from.addr;
       this.to = mail.to;
       this.cc = mail.cc;

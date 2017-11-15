@@ -1,9 +1,3 @@
-<!--
-  Generated template for the MailsinglePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -12,8 +6,10 @@
 
 </ion-header>
 
-
 <ion-content padding>
+  <!--{{ global | json}}
+/ion-content>
+<ion-content padding-->
   from : {{ from }} <br>
   to: <span *ngFor="let t of to">{{ t.addr }}<br></span>
   <p *ngIf="cc !=''">cc: <span *ngFor="let c of cc">{{ c.addr }}<br></span></p>

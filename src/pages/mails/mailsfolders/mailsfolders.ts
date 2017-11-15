@@ -51,8 +51,8 @@ export class MailsFolders {
           this.impFolder = mails.importantFolders;
           this.dataUnread = mails.dataUnread;
           this.status = mails.status;
-          this.length = mails.pageInfo.pageCount;
-          for(let i=0; i < 1+this.length; i++){
+          this.length = mails.data.length;
+          for(let i=0; i < this.length; i++){
             this.mails.push(this.data.data[i])
           }
         }
