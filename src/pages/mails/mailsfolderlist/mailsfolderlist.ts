@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { MailsServiceProvider } from '../../../providers/mails-service/mails-service'
 
+import { TranslateService } from '@ngx-translate/core';
 
 import { MailsFolders } from '../mailsfolders/mailsfolders';
 
@@ -16,6 +17,7 @@ export class MailsfolderlistPage {
     public navParams: NavParams,
     public alertCtrl: AlertController,
     private mailsserrvice: MailsServiceProvider,
+    private translate : TranslateService,
   ) {
     this.loadFolder()
   }
@@ -35,12 +37,19 @@ export class MailsfolderlistPage {
   }
   folder = {name:'', parent:'', imp:''}
   newfolder(){
+    let a: any = {};
+    this.translate.get(['web2cs_mail_create_folder','web2cs_label_enter_name', 'button_cancel', 'web2cs_ok']).subscribe(t=>{
+      a.title = t["web2cs_mail_create_folder"]
+      a.msg = t["web2cs_label_enter_name"]
+      a.btncan = t["button_cancel"]
+      a.btnok = t["web2cs_ok"] 
+    })
     let alert = this.alertCtrl.create({
-      title : 'Create a new mailfolder',
-      message: 'Enter the Mailfolder Name',
+      title : a.title,
+      message: a.msg,
       inputs : [{name: 'name', type: 'text'}],
-      buttons:[{text: 'Cancel', role: 'cancel', handler: data=>{}},
-      {text: 'ok', handler: data=>{
+      buttons:[{text: a.btncan, role: 'cancel', handler: data=>{}},
+      {text: a.btnok, handler: data=>{
         this.folder = { name: data.name, parent:'', imp:'0'}
         this.mailsserrvice.createFolder(this.folder).then((result)=>{
           this.loadFolder()
@@ -52,12 +61,20 @@ export class MailsfolderlistPage {
     alert.present()
   }
   editfolder(name, oid){
+
+    let a: any = {};
+    this.translate.get(['button_update','web2cs_label_enter_name', 'button_cancel', 'web2cs_ok']).subscribe(t=>{
+      a.title = t["button_update"]
+      a.msg = t["web2cs_label_enter_name"]
+      a.btncan = t["button_cancel"]
+      a.btnok = t["web2cs_ok"] 
+    })
     let alert = this.alertCtrl.create({
-      title : 'Update the mailfolder name',
-      message: 'Enter the new Name',
+      title : a.title,
+      message: a.msg,
       inputs : [{name: 'name', type: 'text', placeholder: name}],
-      buttons:[{text: 'Cancel', role: 'cancel', handler: data=>{}},
-      {text: 'ok', handler: data=>{
+      buttons:[{text: a.btncan, role: 'cancel', handler: data=>{}},
+      {text: a.btnok, handler: data=>{
         this.folder = { name: data.name, parent:oid, imp:'0'}
         this.mailsserrvice.updateFolder(this.folder).then((result)=>{
           this.loadFolder()
@@ -69,11 +86,18 @@ export class MailsfolderlistPage {
     alert.present()
   }
   deletefolder(oid){
+    let a: any = {};
+    this.translate.get(['web2cs_mail_delete_folder', 'button_cancel', 'web2cs_ok']).subscribe(t=>{
+      a.title = t["web2cs_mail_delete_folder"]
+      a.msg = t["web2cs_mail_delete_folder"] + " ?"
+      a.btncan = t["button_cancel"]
+      a.btnok = t["web2cs_ok"] 
+    })
     let alert = this.alertCtrl.create({
-      title : 'Delete mailfolder',
-      message: 'Are you sure you want to delete this mailfolder and all contents ?',
-      buttons:[{text: 'Cancel', role: 'cancel', handler: ()=>{}},
-      {text: 'delete', handler: ()=>{
+      title : a.title,
+      message: a.msg,
+      buttons:[{text: a.btncan, role: 'cancel', handler: ()=>{}},
+      {text: a.btnok, handler: ()=>{
         this.folder = { name:'', parent:oid, imp:'0'}
         this.mailsserrvice.deleteFolder(this.folder).then((result)=>{
           this.loadFolder()

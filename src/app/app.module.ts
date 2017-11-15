@@ -59,7 +59,7 @@ import { NotefolderupdatePage } from '../pages/notes/notefolderupdate/notefolder
 import { NoteupdatePage } from '../pages/notes/noteupdate/noteupdate'
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient, "../assets/nls/", "/blind.json");
+  return new TranslateHttpLoader(httpClient, "../assets/nls/", "/web2cs.json");
   /*return new TranslateHttpLoader(httpClient, "../assets/nls/", "/blind.json");
   return new TranslateHttpLoader(httpClient, "../assets/nls/", "/abook.json");
   return new TranslateHttpLoader(httpClient, "../assets/nls/", "/abook.json");

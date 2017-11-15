@@ -2,7 +2,7 @@
 <ion-header>
   
     <ion-navbar>
-      <ion-title>login</ion-title>
+      <ion-title>{{'error_login' | translate }}</ion-title>
     </ion-navbar>
   
   </ion-header>
@@ -41,7 +41,7 @@
         
         <ion-row>
           <ion-col class="signup-col">
-            <button ion-button class="submit-btn" (click)="login()">Login</button>
+            <button ion-button class="submit-btn" (click)="login()">{{'error_login' | translate }}</button>
           </ion-col>
         </ion-row>
         

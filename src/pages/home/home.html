@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Aruba / Xandmail</ion-title>
+    <ion-title>{{'browser_title' | translate }}</ion-title>
     <ion-buttons start>
       <button ion-button (click)="logout(sessionid)">
       <ion-icon name="log-out"></ion-icon>
@@ -10,17 +10,17 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>
+  <!--h3>
     Welcome on your application
-  </h3>
-  <p>Your email is : {{ email }}</p>
+  </h3-->
+  <p text-center>{{ email }}</p>
   
-  <button ion-button class="mails-btn" full (click)="mails()">Messages<ion-badge item-end *ngIf="this.newMsg!=0">({{ newMsg }})</ion-badge></button><br>
-  <button ion-button class="abooks-btn" full (click)="contacts()">Contacts</button><br>
-  <button ion-button class="calendars-btn" full (click)="calendars()">Calendars</button><br>
-  <button ion-button class="storage-btn" full (click)="storages()">Documents</button><br>
-  <button ion-button class="notes-btn" full (click)="notes()">Notes</button><br>
-  <button ion-button class="tasks-btn" full (click)="tasks()">Tasks</button><br>    
+  <button ion-button class="mails-btn" full (click)="mails()">{{'web2cs_messages' | translate }}<ion-badge item-end *ngIf="this.newMsg!=0">({{ newMsg }})</ion-badge></button><br>
+  <button ion-button class="abooks-btn" full (click)="contacts()">{{'web2cs_abook' | translate }}</button><br>
+  <button ion-button class="calendars-btn" full (click)="calendars()">{{'web2cs_calendar' | translate }}</button><br>
+  <button ion-button class="storage-btn" full (click)="storages()">{{'web2cs_webstorage' | translate }}</button><br>
+  <button ion-button class="notes-btn" full (click)="notes()">{{'web2cs_notes' | translate }}</button><br>
+  <button ion-button class="tasks-btn" full (click)="tasks()">{{'web2cs_task' | translate }}</button><br>    
 
   <ion-fab bottom left #fab1>
     <button ion-fab><ion-icon name="add"></ion-icon></button>

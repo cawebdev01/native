@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>newmail</ion-title>
+    <ion-title>{{'compose_new_new_message' | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -33,10 +33,10 @@
       <ion-toggle [(ngModel)]="message.high" checked="false"></ion-toggle> 
     </ion-item>
     <ion-item>
-      <ion-label>Notice </ion-label>
+      <ion-label>{{ 'preferences_send_notice_of_receipt' | translate }} </ion-label>
       <ion-toggle [(ngModel)]="message.notice" checked="false"></ion-toggle>
     </ion-item>
     <!--button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Send</button-->
-      <button ion-button class="submit-btn" full type="submit" (click)="send()">Send</button>
+      <button ion-button class="submit-btn" full type="submit" (click)="send()">{{'web2cs_ok' | translate }}</button>
     </ion-list>
 </ion-content>

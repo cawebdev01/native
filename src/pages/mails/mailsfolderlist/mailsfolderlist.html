@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Aruba - Messages</ion-title>
+    <ion-title>{{'web2cs_messages' | translate }}</ion-title>
     <ion-buttons start>
         <button ion-button (click)="newfolder()">
             <ion-icon name="md-add"></ion-icon>
@@ -11,7 +11,7 @@
 
 
 <ion-content padding >
-  <p>{{ accountSize }} Ko utilisés / {{ accountMaxSize/1024/1024 }} Go disponibles. </p>
+  <p>{{'settings_usage_title' | translate }} {{ accountSize }} Ko  / {{ accountMaxSize/1024/1024 }} Go. </p>
   <ion-list *ngIf="statuserrcode == 0">
     <ion-item *ngFor="let du of data">
       <ion-row>
