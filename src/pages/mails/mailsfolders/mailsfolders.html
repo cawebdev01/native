@@ -20,7 +20,7 @@
     <div *ngIf="items">
       <ion-item text-wrap *ngFor="let mail of items">
         <ion-row>
-          <ion-col col-10><b *ngIf="mail.isUnread == true">
+          <ion-col col-9><b *ngIf="mail.isUnread == true">
             <p (click)="loadMail(mail.objectId, mail.objectFolder)">
             from: {{ mail.from}} <br> 
             {{ mail.date }} <br>
@@ -43,7 +43,7 @@
     <div *ngIf="!items">
       <ion-item text-wrap *ngFor="let mail of mails">
           <ion-row>
-            <ion-col col-10><b *ngIf="mail.isUnread == true">
+            <ion-col col-9><b *ngIf="mail.isUnread == true">
               <p (click)="loadMail(mail.objectId, mail.objectFolder)">
               from: {{ mail.from}} <br> 
               {{ mail.date }} <br>

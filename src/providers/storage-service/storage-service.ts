@@ -52,6 +52,6 @@ sessionid; url;
 
   }
   getNextpage(credentials){
-    return this.http.get(this.url+'/cgi-bin/ajaxfile?ACT_FIL_NEXT=1&tpl=file_list&SID='+credentials.sid+'&SENS='+credentials.sens+'&ID='+this.sessionid+'&CURRENTUID='+credentials.folder+'&FUID='+credentials.fuid+'&EXPZIP='+credentials.exploreZip+'&EPLCSET='+credentials.exploreCharset+'&SHRUID='+credentials.shareObjectId+'&SHOW_MODE='+credentials.showMode).map((res: Response)=> res.json())
+    return this.http.get(this.url+'/cgi-bin/ajaxfile?ACT_FIL_NEXT=1&tpl=file_list&SENS=1&ID='+this.sessionid+'&CURRENTUID='+credentials.folder).map((res: Response)=> res.json())
   }
 }

@@ -18,6 +18,9 @@ export class TasksServiceProvider {
   getTaskdetail(tasklist, taskid){
     return this.http.get(this.url+'/cgi-bin/ajaxtasks?ACT_TASK=1&TLUID='+tasklist+'&TUID='+taskid+'&tpl=taskedit&ID='+this.sessionid).map((res:Response)=>res.json());
   }
+  getNextPage(tluid, sort){
+    return this.http.get(this.url+'/cgi-bin/ajaxtasks?ACT_TASKLIST_LIST_NEXT=1&TLUID='+tluid+'&tpl=tasklist_list&ID='+this.sessionid).map((res:Response)=>res.json());
+  }
   postTask(credentials){
     return new Promise((resolve, reject)=>{
       let header = new Headers()

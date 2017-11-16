@@ -23,10 +23,11 @@ export class TasklistPage {
     this.title = this.navParams.get("name")
     this.loadTasks()
   }
-data
+data; pages
   loadTasks(){
     this.tasksservice.getTasks(this.tid).subscribe(tasks =>{
       this.data = tasks.data;
+      this.pages = tasks.pageInfo;
     })
   }
   openTask(taskid){
@@ -71,4 +72,21 @@ data
     myModal.present() 
     console.log (this.tid, obj)
   }
+  nxp; length
+  /*nextpage(infiniteScroll){
+    this.pages.page = this.pages.page+1
+    setTimeout(()=>{
+      this.tasksservice.g(this.notes, this.page.page)
+      .subscribe( notes =>{
+        this.data = notes.data;
+        this.page = notes.pageInfo;
+        this.nxp = notes.pageInfo.nextPage;
+        this.length = notes.data.length;
+        for(let i=0; i< this.length; i++){
+          this.notes.push(this.data.data[i])
+        }
+      })
+      infiniteScroll.complete()
+    }, 1000)
+  }*/
 }

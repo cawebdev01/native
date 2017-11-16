@@ -28,4 +28,23 @@ export class StoragefilesPage {
   loadfile(path, type){
     this.navCtrl.push(StoragedetailPage, {"path": path, "type": type})
   }
+  nxp; length; cred :any = {}
+  nextpage(infiniteScroll){
+    this.cred= { folder : this.folder}
+    this.page.page = this.page.page
+    this.nxp = this.page.nextPage
+    setTimeout(()=>{
+     this.storageService.getNextpage(this.cred)
+      .subscribe( file =>{
+        this.data = file.data;
+        this.page = file.pageInfo;
+        this.nxp = file.pageInfo.nextPage;
+        this.length = file.data.length;
+        for(let i=0; i< this.length; i++){
+          this.data.push(this.data[i])
+        }
+      })
+      infiniteScroll.complete()
+    }, 1000)
+  }
 }

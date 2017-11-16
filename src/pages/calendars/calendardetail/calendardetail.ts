@@ -1,19 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import { CalendarsServiceProvider } from '../../../providers/calendars-service/calendars-service'
+import { CalendarComponent } from 'ionic2-calendar/calendar'
+
 //import { Calendar } from '@ionic-native/calendar'
 
 import { NeweventPage } from '../newevent/newevent'
 
 import { NgCalendarModule } from 'ionic2-calendar'
 import * as moment from 'moment'
+//import { ViewChild } from '@angular/core/src/metadata/di';
 
 @Component({
   selector: 'page-calendardetail',
   templateUrl: 'calendardetail.html',
 })
 export class CalendardetailPage {
-calname; viewTitle; data; essai;
+   @ViewChild(CalendarComponent) myCalendar: CalendarComponent;
+
+calname; viewTitle; data; essai; testeSource:[{title:'', startTime:Date, endTime: Date, allDay: Boolean}]
 eventSource = []
 selectedDay = new Date()
 calendar = {
@@ -30,6 +35,7 @@ calendar = {
   ) {
     this.calname = navParams.get("calname");
     this.getEvents();
+    //this.loadEvents()
   }
   cat; calendars; year; month; date;
   getEvents(){
@@ -42,6 +48,23 @@ calendar = {
       this.data = cal.data;
       //this.eventSource = cal.data
     })
+  }
+  loadEvents(){
+    let et = new Date(Date.UTC(2017, 10, 3, 12, 5))
+    let st = new Date(Date.UTC(2017, 10, 15, 16, 45))
+    let eventData = {
+      title: 'test1',
+      startTime: st,
+      endTime: et,
+      allDay: true
+    }
+    let events =this.eventSource
+    this.eventSource.push()
+    this.eventSource = [];
+    setTimeout(()=>{
+
+    })
+    this.myCalendar.loadEvents()
   }
   addEvent() {
     let modal = this.modalCtrl.create(NeweventPage, {selectedDay: this.selectedDay});
