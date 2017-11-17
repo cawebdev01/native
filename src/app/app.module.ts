@@ -16,7 +16,6 @@ import { NgCalendarModule } from 'ionic2-calendar'
 
 import { MyApp } from './app.component';
 
-import { ContactPage } from '../pages/contact/contact';
 import { TaskupdatePage } from '../pages/tasks/taskupdate/taskupdate'
 import { TaskgroupupdatePage } from '../pages/tasks/taskgroupupdate/taskgroupupdate'
 import { HomePage } from '../pages/home/home';
@@ -26,7 +25,8 @@ import { MailsfolderlistPage } from '../pages/mails/mailsfolderlist/mailsfolderl
 import { MailsinglePage } from '../pages/mails/mailsingle/mailsingle'; 
 import { NewmailPage } from '../pages/mails/newmail/newmail';
 import { NeweventPage } from '../pages/calendars/newevent/newevent';
-import { AbooksFolders} from '../pages/abooks/abooksfolders/abooksfolders';
+import { AbooksFolders } from '../pages/abooks/abooksfolders/abooksfolders';
+import { NewcontactPage } from '../pages/abooks/newcontact/newcontact' 
 import { CalendarsFolders } from '../pages/calendars/calendarsfolders/calendarsFolders';
 import { CalendardetailPage } from '../pages/calendars/calendardetail/calendardetail';
 import { StorageFolders } from '../pages/storage/storagefolders/storagefolders';
@@ -60,16 +60,11 @@ import { NoteupdatePage } from '../pages/notes/noteupdate/noteupdate'
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, "../assets/nls/", "/web2cs.json");
-  /*return new TranslateHttpLoader(httpClient, "../assets/nls/", "/blind.json");
-  return new TranslateHttpLoader(httpClient, "../assets/nls/", "/abook.json");
-  return new TranslateHttpLoader(httpClient, "../assets/nls/", "/abook.json");
-  return new TranslateHttpLoader(httpClient, "../assets/nls/", "/abook.json");*/
 }
 
 @NgModule({
   declarations: [
     MyApp,
-    ContactPage,
     HomePage,
     LoginPage,
     MailsFolders,
@@ -85,6 +80,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CalendardetailPage,
     NeweventPage,
     NewnotePage,
+    NewcontactPage,
     NotefoldermodalePage,
     NotefolderupdatePage,
     NewtaskPage,
@@ -119,7 +115,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    ContactPage,
     HomePage,
     LoginPage,
     MailsFolders,
@@ -130,6 +125,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     NewmailPage,
     NewnotePage,
     NewtaskPage,
+    NewcontactPage,
     NotefoldermodalePage,
     AbooksFolders,
     AbookslistPage,

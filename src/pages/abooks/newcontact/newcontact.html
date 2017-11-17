@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>NEW CONTACT</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-row>
+      <ion-item col-6>
+        <ion-input type="text" placeholder="First Name"></ion-input>
+      </ion-item>
+      <ion-item col-6>
+        <ion-input type="text" placeholder="Last Name"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item col-6>
+        <ion-input type="text" placeholder="Job Title"></ion-input>
+      </ion-item>
+      <ion-item col-6>
+        <ion-input type="text" placeholder="Company"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-label col-4>Address Book</ion-label>
+      <ion-select col-7>
+        <ion-option></ion-option>
+      </ion-select>
+    </ion-row>
+    <ion-row>
+      <ion-label col-4>Phone</ion-label>
+      <ion-input type="tel" col-7></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-label col-4>Email</ion-label>
+      <ion-input type="email" col-7></ion-input>
+      <ion-label col-4>Website</ion-label>
+      <ion-input type="text" col-7></ion-input>
+      <ion-label col-4>Facebook</ion-label>
+      <ion-input type="text" col-7></ion-input>
+      <ion-label col-4>Hangout</ion-label>
+      <ion-input type="text" col-7></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-label col-4>Address</ion-label>
+      <ion-input type="text" col-7></ion-input>
+      <ion-label col-4>Zip Code</ion-label>
+      <ion-input type="text" col-7></ion-input>
+      <ion-label col-4>City</ion-label>
+      <ion-input type="text" col-7></ion-input>
+      <ion-label col-4>Country</ion-label>
+      <ion-input type="text" col-7></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-label col-4>Birthday</ion-label>
+      <ion-input type="date" col-7></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-label col-4>Notes</ion-label>
+      <ion-textarea rows="5" type="text" col-7></ion-textarea>
+    </ion-row>
+  </ion-list>
+  <ion-row>
+    <button ion-button full (click)="cancel()" col-6>Cancel</button>
+    <button ion-button full (click)="createnote()" col-6>Create</button>
+  </ion-row>
+</ion-content>

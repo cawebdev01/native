@@ -18,6 +18,9 @@ sessionid; url;
   getABContact(abid, cuid){
     return this.http.get(this.url+'/cgi-bin/ajaxpab?ACT_CT_LEDIT=1&tpl=contact_preview&CUID='+cuid+'&ABID='+abid+'&ID='+this.sessionid).map((res:Response)=>res.json())
   }
+  getnextpage(abid){
+    return this.http.get(this.url+'/cgi-bin/ajaxpab?ACT_CL_NEXT=1&FVAL=105&tpl=contact_list&ID='+this.sessionid+'&ABID='+abid).map((res:Response)=> res.json())
+  }
   createList(name){
     return new Promise((resolve, reject) =>{
       let header = new Headers()
